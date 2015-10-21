@@ -1,0 +1,3 @@
+[submodule "msp430/transmitter/driver"]
+	path = msp430/transmitter/driver
+	url = https://github.com/rtreichl/msp430_driver.git

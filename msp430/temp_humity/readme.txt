@@ -1,1 +1,0 @@
-C files for temperature and humidity
