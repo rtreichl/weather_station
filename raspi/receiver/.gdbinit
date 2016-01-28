@@ -1,0 +1,1 @@
+set sysroot F:\SysGCC\raspberry\arm-linux-gnueabihf
