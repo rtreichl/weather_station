@@ -1,4 +1,4 @@
-#include "spi.h"
+#include <driver.h>
 
 #include <sys/ioctl.h>
 #include <fcntl.h>

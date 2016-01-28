@@ -5,7 +5,7 @@
  *      Author: Richard Treichl
  */
 
-#include "gpio.h"
+#include <driver.h>
 #include <sys/ioctl.h>
 //#include <linux/signal.h>
 #include <linux/sched.h>

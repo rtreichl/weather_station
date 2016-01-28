@@ -1,6 +1,5 @@
 #include <stdint.h>
-#include "i2c.h"
-#include "gpio.h"
+#include <driver.h>
 #include <pigpio.h>
 
 #define HDC1000_TEMPERATURE_REG		0x00

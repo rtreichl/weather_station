@@ -18,10 +18,8 @@
 #include <linux/i2c-dev.h>
 #include <iostream>
 
-#include "hdc1000.h"
-#include "tmp102.h"
-#include "cc110l.h"
-#include "cc110l_config2.h"
+#include "../driver/extern/cc110l/include/cc110l_config2.h"
+#include "../driver/driver.h"
 #include "database.h"
 #include "protocol.h"
 
@@ -203,8 +201,8 @@ void *getDatafromCC110L(void  *userdata)
 			PROTOCOL_PORT_1_DATA_STC *ptr_data = (PROTOCOL_PORT_1_DATA_STC*)package.dyn_data;
 			cout << "LPS25H Temp: " << ptr_data->lps25h_temp / 480.0 + 42.5 << "\u2103" << endl;
 			cout << "LPS25H Press: " << ptr_data->lps25h_press / 4096.0 << "hPa" << endl;
-			cout << "SI1147 IR: " << (int)ptr_data->si1147_ir << "lux" << endl;
-			cout << "SI1147 VIS: " << (int)ptr_data->si1147_vis << "lux" << endl;
+			cout << "SI1147 IR: " << static_cast<int>(ptr_data->si1147_ir) << "lux" << endl;
+			cout << "SI1147 VIS: " << static_cast<int>(ptr_data->si1147_vis) << "lux" << endl;
 			cout << "SI1147 UV: " << ptr_data->si1147_uv / 100.0 << endl;
 			cout << "Rssi: " << dec  << static_cast<int>(cc110l->RssiConvertion(ptr_data->append.rssi)) << "dBm" << endl;
 			if (ptr_data->append.crc & 0x80)

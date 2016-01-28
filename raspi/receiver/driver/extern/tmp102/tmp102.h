@@ -1,5 +1,4 @@
 #include <stdint.h>
-#include "i2c.h"
 #include <pigpio.h>
 
 #define TMP102_TEMPERATURE_REG		0x00

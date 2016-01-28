@@ -1,4 +1,4 @@
-#include "cc110l.h"
+#include "../cc110l.h"
 // Packet length mode = Variable packet length mode. Packet length configured by the first byte after sync word 
 // Device address = 0 
 // Carrier frequency = 867.999939 

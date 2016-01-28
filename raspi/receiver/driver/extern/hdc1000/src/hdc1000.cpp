@@ -1,4 +1,4 @@
-#include "hdc1000.h"
+#include <driver.h>
 #include <iostream>
 //#include <wiringPiI2C.h>
 //#include <wiringPi.h>

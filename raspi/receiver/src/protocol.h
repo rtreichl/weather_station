@@ -20,7 +20,7 @@
 #define PROTOCOL_H_
 
 #include <stdint.h>
-#include "cc110l.h"
+#include <driver.h>
 
 #define PROTOCOL_1	0x01
 #define PROTOCOL_2	0x02
