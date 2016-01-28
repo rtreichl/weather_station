@@ -42,75 +42,84 @@ Database::Database()
 	}
 }
 
-int Database::UpdateAvg(uint8_t protocol, uint8_t address, void *data)
+int Database::DynDataExtactor(PROTOCOL_STC *data, PROTOCOL_PORT_1_DATA_STC *dyn_data)
 {
+	switch (data->header.protocol) {
+	case PROTOCOL_1: {
+		PROTOCOL_PORT_1_DATA_STC *ptr_dyn_data =
+				(PROTOCOL_PORT_1_DATA_STC*) data->dyn_data;
+		dyn_data->lps25h_temp = ptr_dyn_data->lps25h_temp;
+		dyn_data->lps25h_press = ptr_dyn_data->lps25h_press;
+		dyn_data->si1147_uv = ptr_dyn_data->si1147_uv;
+		dyn_data->si1147_vis = ptr_dyn_data->si1147_vis;
+		dyn_data->si1147_ir = ptr_dyn_data->si1147_ir;
+	}
+		break;
+	case PROTOCOL_2: {
+		PROTOCOL_PORT_2_DATA_STC *ptr_dyn_data =
+				(PROTOCOL_PORT_2_DATA_STC*) data->dyn_data;
+		dyn_data->lps25h_temp = ptr_dyn_data->lps25h_temp;
+		dyn_data->lps25h_press = ptr_dyn_data->lps25h_press;
+		dyn_data->si1147_uv = 0;
+		dyn_data->si1147_vis = 0;
+		dyn_data->si1147_ir = 0;
+	}
+		break;
+	case PROTOCOL_3: {
+		PROTOCOL_PORT_3_DATA_STC *ptr_dyn_data =
+				(PROTOCOL_PORT_3_DATA_STC*) data->dyn_data;
+		dyn_data->lps25h_temp = 0;
+		dyn_data->lps25h_press = 0;
+		dyn_data->si1147_uv = ptr_dyn_data->si1147_uv;
+		dyn_data->si1147_vis = ptr_dyn_data->si1147_vis;
+		dyn_data->si1147_ir = ptr_dyn_data->si1147_ir;
+	}
+		break;
+	case PROTOCOL_4: {
+		PROTOCOL_PORT_4_DATA_STC *ptr_dyn_data =
+				(PROTOCOL_PORT_4_DATA_STC*) data->dyn_data;
+		dyn_data->lps25h_temp = 0;
+		dyn_data->lps25h_press = 0;
+		dyn_data->si1147_uv = 0;
+		dyn_data->si1147_vis = 0;
+		dyn_data->si1147_ir = 0;
+	}
+		break;
+	default:
+		return -1;
+	}
+	return 0;
+}
+
+int Database::UpdateAvg(PROTOCOL_STC *data)
+{
+	PROTOCOL_PORT_1_DATA_STC dyn_data;
 	string query = mysql_select_sensorsavgmaxmin;
 	ReplaceString("SensorsAvg", query);
-	ReplaceDecimal(address, query);
+	ReplaceDecimal(data->header.dest_addr, query);
 	MysqlQuery(query);
 #if MYSQL_DEBUG
 	cout << query << endl;
 #endif
 	if(mysql_num_rows(this->Result) == 0){
-		InsertMinMaxAvg(2, protocol, address, data);
+		InsertMinMaxAvg(2, data);
 	}
 	else {
 		query.assign(mysql_update_sensorsavg);
-		ReplaceDecimal(address, query);
-		switch(protocol) {
-			case 1:
-				{
-					PROTOCOL_PORT_1_DATA_STC *data_1 = (PROTOCOL_PORT_1_DATA_STC*) data;
-//					ReplaceFloat(data_1->hdc1000_temp / 100.0, query);
-//					ReplaceFloat(data_1->hdc1000_humi / 100.0, query);
-//					ReplaceFloat(data_1->tmp102_temp / 100.0, query);
-//					ReplaceFloat(data_1->lps25h_temp / 100.0, query);
-//					ReplaceFloat(data_1->lps25h_press / 100.0, query);
-//					ReplaceFloat(data_1->si1147_uv / 100.0, query);
-//					ReplaceFloat(data_1->si1147_vis * 1.0, query);
-//					ReplaceFloat(data_1->si1147_ir * 1.0, query);
-//					ReplaceFloat(data_1->vbat / 100.0, query);
-//					ReplaceFloat(data_1->vsolar / 100.0, query);
-				}
-				break;
-			case 2:
-				{
-					PROTOCOL_PORT_2_DATA_STC *data_2 = (PROTOCOL_PORT_2_DATA_STC*) data;
-//					ReplaceFloat(data_2->hdc1000_temp / 100.0, query);
-//					ReplaceFloat(data_2->hdc1000_humi / 100.0, query);
-//					ReplaceFloat(data_2->tmp102_temp / 100.0, query);
-//					ReplaceFloat(data_2->lps25h_temp / 100.0, query);
-//					ReplaceFloat(data_2->lps25h_press / 100.0, query);
-//					ReplaceFloat(data_2->vbat / 100.0, query);
-//					ReplaceFloat(data_2->vsolar / 100.0, query);
-				}
-				break;
-			case 3:
-				{
-					PROTOCOL_PORT_3_DATA_STC *data_3 = (PROTOCOL_PORT_3_DATA_STC*) data;
-//					ReplaceFloat(data_3->hdc1000_temp / 100.0, query);
-//					ReplaceFloat(data_3->hdc1000_humi / 100.0, query);
-//					ReplaceFloat(data_3->tmp102_temp / 100.0, query);
-//					ReplaceFloat(data_3->si1147_uv / 100.0, query);
-//					ReplaceFloat(data_3->si1147_vis * 1.0, query);
-//					ReplaceFloat(data_3->si1147_ir * 1.0, query);
-//					ReplaceFloat(data_3->vbat / 100.0, query);
-//					ReplaceFloat(data_3->vsolar / 100.0, query);
-				}
-				break;
-			case 4:
-				{
-					PROTOCOL_PORT_4_DATA_STC *data_4 = (PROTOCOL_PORT_4_DATA_STC*) data;
-//					ReplaceFloat(data_4->hdc1000_temp / 100.0, query);
-//					ReplaceFloat(data_4->hdc1000_humi / 100.0, query);
-//					ReplaceFloat(data_4->tmp102_temp / 100.0, query);
-//					ReplaceFloat(data_4->vbat / 100.0, query);
-//					ReplaceFloat(data_4->vsolar / 100.0, query);
-				}
-				break;
-			default:
-				return -1;
-		}
+		DynDataExtactor(data, &dyn_data);
+		ReplaceDecimal(data->header.dest_addr, query);
+		ReplaceFloat(data->static_data.hdc1000_temp * HDC1000_TEMP_FACTOR, query);
+		ReplaceFloat(data->static_data.hdc1000_humi * HDC1000_HUMI_FACTOR, query);
+		ReplaceFloat(data->static_data.tmp102_temp * TMP102_TEMP_FACTOR, query);
+		ReplaceFloat(data->static_data.max17048_vcell * MAX17048_VCELL_FACTOR, query);
+		ReplaceFloat(data->static_data.max17048_charge * MAX17048_CHARGE_FACTOR, query);
+		ReplaceFloat(data->static_data.max17048_crate * MAX17048_CRATE_FACTOR, query);
+		ReplaceFloat(data->static_data.solar_voltage * MSP430_VSOLAR_FACTOR, query);
+		ReplaceFloat(dyn_data.lps25h_temp * LPS25H_TEMP_FACTOR, query);
+		ReplaceFloat(dyn_data.lps25h_press * LPS25H_PRESS_FACTOR, query);
+		ReplaceFloat(dyn_data.si1147_uv * SI1147_UV_FACTOR, query);
+		ReplaceFloat(dyn_data.si1147_vis * SI1147_VIS_FACTOR, query);
+		ReplaceFloat(dyn_data.si1147_ir * SI1147_IR_FACTOR, query);
 		MysqlQuery(query);
 #if MYSQL_DEBUG
 		cout << query << endl;
@@ -119,8 +128,9 @@ int Database::UpdateAvg(uint8_t protocol, uint8_t address, void *data)
 	return 0;
 }
 
-int Database::UpdateMinMax(uint8_t minmax, uint8_t protocol, uint8_t address, void *data)
+int Database::UpdateMinMax(uint8_t minmax, PROTOCOL_STC *data)
 {
+	PROTOCOL_PORT_1_DATA_STC dyn_data;
 	string query = mysql_select_sensorsavgmaxmin;
 	if(minmax == 0) {
 		ReplaceString("SensorsMin", query);
@@ -128,13 +138,13 @@ int Database::UpdateMinMax(uint8_t minmax, uint8_t protocol, uint8_t address, vo
 	else {
 		ReplaceString("SensorsMax", query);
 	}
-	ReplaceDecimal(address, query);
+	ReplaceDecimal(data->header.dest_addr, query);
 	MysqlQuery(query);
 #if MYSQL_DEBUG
 	cout << query << endl;
 #endif
 	if(mysql_num_rows(this->Result) == 0){
-		InsertMinMaxAvg(minmax, protocol, address, data);
+		InsertMinMaxAvg(minmax, data);
 	}
 	else {
 		if(minmax) {
@@ -143,110 +153,32 @@ int Database::UpdateMinMax(uint8_t minmax, uint8_t protocol, uint8_t address, vo
 		else {
 			query.assign(mysql_update_sensorsmax);
 		}
-		ReplaceDecimal(address, query);
-		switch(protocol) {
-			case 1:
-				{
-					PROTOCOL_PORT_1_DATA_STC *data_1 = (PROTOCOL_PORT_1_DATA_STC*) data;
-//					ReplaceFloat(data_1->hdc1000_temp / 100.0, query);
-//					ReplaceFloat(data_1->hdc1000_temp / 100.0, query);
-//					ReplaceFloat(data_1->hdc1000_humi / 100.0, query);
-//					ReplaceFloat(data_1->hdc1000_humi / 100.0, query);
-//					ReplaceFloat(data_1->tmp102_temp / 100.0, query);
-//					ReplaceFloat(data_1->tmp102_temp / 100.0, query);
-//					ReplaceFloat(data_1->lps25h_temp / 100.0, query);
-//					ReplaceFloat(data_1->lps25h_temp / 100.0, query);
-//					ReplaceFloat(data_1->lps25h_press / 100.0, query);
-//					ReplaceFloat(data_1->lps25h_press / 100.0, query);
-//					ReplaceFloat(data_1->si1147_uv / 100.0, query);
-//					ReplaceFloat(data_1->si1147_uv / 100.0, query);
-//					ReplaceFloat(data_1->si1147_vis * 1.0, query);
-//					ReplaceFloat(data_1->si1147_vis * 1.0, query);
-//					ReplaceFloat(data_1->si1147_ir * 1.0, query);
-//					ReplaceFloat(data_1->si1147_ir * 1.0, query);
-//					ReplaceFloat(data_1->vbat / 100.0, query);
-//					ReplaceFloat(data_1->vbat / 100.0, query);
-//					ReplaceFloat(data_1->vsolar / 100.0, query);
-//					ReplaceFloat(data_1->vsolar / 100.0, query);
-				}
-				break;
-			case 2:
-				{
-					PROTOCOL_PORT_2_DATA_STC *data_2 = (PROTOCOL_PORT_2_DATA_STC*) data;
-//					ReplaceFloat(data_2->hdc1000_temp / 100.0, query);
-//					ReplaceFloat(data_2->hdc1000_temp / 100.0, query);
-//					ReplaceFloat(data_2->hdc1000_humi / 100.0, query);
-//					ReplaceFloat(data_2->hdc1000_humi / 100.0, query);
-//					ReplaceFloat(data_2->tmp102_temp / 100.0, query);
-//					ReplaceFloat(data_2->tmp102_temp / 100.0, query);
-//					ReplaceFloat(data_2->lps25h_temp / 100.0, query);
-//					ReplaceFloat(data_2->lps25h_temp / 100.0, query);
-//					ReplaceFloat(data_2->lps25h_press / 100.0, query);
-//					ReplaceFloat(data_2->lps25h_press / 100.0, query);
-//					ReplaceFloat(0.0, query);
-//					ReplaceFloat(0.0, query);
-//					ReplaceFloat(0.0, query);
-//					ReplaceFloat(0.0, query);
-//					ReplaceFloat(0.0, query);
-//					ReplaceFloat(0.0, query);
-//					ReplaceFloat(data_2->vbat / 100.0, query);
-//					ReplaceFloat(data_2->vbat / 100.0, query);
-//					ReplaceFloat(data_2->vsolar / 100.0, query);
-//					ReplaceFloat(data_2->vsolar / 100.0, query);
-				}
-				break;
-			case 3:
-				{
-					PROTOCOL_PORT_3_DATA_STC *data_3 = (PROTOCOL_PORT_3_DATA_STC*) data;
-//					ReplaceFloat(data_3->hdc1000_temp / 100.0, query);
-//					ReplaceFloat(data_3->hdc1000_temp / 100.0, query);
-//					ReplaceFloat(data_3->hdc1000_humi / 100.0, query);
-//					ReplaceFloat(data_3->hdc1000_humi / 100.0, query);
-//					ReplaceFloat(data_3->tmp102_temp / 100.0, query);
-//					ReplaceFloat(data_3->tmp102_temp / 100.0, query);
-//					ReplaceFloat(0.0, query);
-//					ReplaceFloat(0.0, query);
-//					ReplaceFloat(0.0, query);
-//					ReplaceFloat(0.0, query);
-//					ReplaceFloat(data_3->si1147_uv / 100.0, query);
-//					ReplaceFloat(data_3->si1147_vis * 1.0, query);
-//					ReplaceFloat(data_3->si1147_vis * 1.0, query);
-//					ReplaceFloat(data_3->si1147_ir * 1.0, query);
-//					ReplaceFloat(data_3->si1147_ir * 1.0, query);
-//					ReplaceFloat(data_3->vbat / 100.0, query);
-//					ReplaceFloat(data_3->vbat / 100.0, query);
-//					ReplaceFloat(data_3->vsolar / 100.0, query);
-//					ReplaceFloat(data_3->vsolar / 100.0, query);
-				}
-				break;
-			case 4:
-				{
-					PROTOCOL_PORT_4_DATA_STC *data_4 = (PROTOCOL_PORT_4_DATA_STC*) data;
-//					ReplaceFloat(data_4->hdc1000_temp / 100.0, query);
-//					ReplaceFloat(data_4->hdc1000_temp / 100.0, query);
-//					ReplaceFloat(data_4->hdc1000_humi / 100.0, query);
-//					ReplaceFloat(data_4->hdc1000_humi / 100.0, query);
-//					ReplaceFloat(data_4->tmp102_temp / 100.0, query);
-//					ReplaceFloat(data_4->tmp102_temp / 100.0, query);
-//					ReplaceFloat(0.0, query);
-//					ReplaceFloat(0.0, query);
-//					ReplaceFloat(0.0, query);
-//					ReplaceFloat(0.0, query);
-//					ReplaceFloat(0.0, query);
-//					ReplaceFloat(0.0, query);
-//					ReplaceFloat(0.0, query);
-//					ReplaceFloat(0.0, query);
-//					ReplaceFloat(0.0, query);
-//					ReplaceFloat(0.0, query);
-//					ReplaceFloat(data_4->vbat / 100.0, query);
-//					ReplaceFloat(data_4->vbat / 100.0, query);
-//					ReplaceFloat(data_4->vsolar / 100.0, query);
-//					ReplaceFloat(data_4->vsolar / 100.0, query);
-				}
-				break;
-			default:
-				return -1;
-		}
+		ReplaceDecimal(data->header.dest_addr, query);
+		DynDataExtactor(data, &dyn_data);
+		ReplaceFloat(data->static_data.hdc1000_temp * HDC1000_TEMP_FACTOR, query);
+		ReplaceFloat(data->static_data.hdc1000_temp * HDC1000_TEMP_FACTOR, query);
+		ReplaceFloat(data->static_data.hdc1000_humi * HDC1000_HUMI_FACTOR, query);
+		ReplaceFloat(data->static_data.hdc1000_humi * HDC1000_HUMI_FACTOR, query);
+		ReplaceFloat(data->static_data.tmp102_temp * TMP102_TEMP_FACTOR, query);
+		ReplaceFloat(data->static_data.tmp102_temp * TMP102_TEMP_FACTOR, query);
+		ReplaceFloat(data->static_data.max17048_vcell * MAX17048_VCELL_FACTOR, query);
+		ReplaceFloat(data->static_data.max17048_vcell * MAX17048_VCELL_FACTOR, query);
+		ReplaceFloat(data->static_data.max17048_charge * MAX17048_CHARGE_FACTOR, query);
+		ReplaceFloat(data->static_data.max17048_charge * MAX17048_CHARGE_FACTOR, query);
+		ReplaceFloat(data->static_data.max17048_crate * MAX17048_CRATE_FACTOR, query);
+		ReplaceFloat(data->static_data.max17048_crate * MAX17048_CRATE_FACTOR, query);
+		ReplaceFloat(data->static_data.solar_voltage * MSP430_VSOLAR_FACTOR, query);
+		ReplaceFloat(data->static_data.solar_voltage * MSP430_VSOLAR_FACTOR, query);
+		ReplaceFloat(dyn_data.lps25h_temp * LPS25H_TEMP_FACTOR, query);
+		ReplaceFloat(dyn_data.lps25h_temp * LPS25H_TEMP_FACTOR, query);
+		ReplaceFloat(dyn_data.lps25h_press * LPS25H_PRESS_FACTOR, query);
+		ReplaceFloat(dyn_data.lps25h_press * LPS25H_PRESS_FACTOR, query);
+		ReplaceFloat(dyn_data.si1147_uv * SI1147_UV_FACTOR, query);
+		ReplaceFloat(dyn_data.si1147_uv * SI1147_UV_FACTOR, query);
+		ReplaceFloat(dyn_data.si1147_vis * SI1147_VIS_FACTOR, query);
+		ReplaceFloat(dyn_data.si1147_vis * SI1147_VIS_FACTOR, query);
+		ReplaceFloat(dyn_data.si1147_ir * SI1147_IR_FACTOR, query);
+		ReplaceFloat(dyn_data.si1147_ir * SI1147_IR_FACTOR, query);
 		MysqlQuery(query);
 #if MYSQL_DEBUG
 		cout << query << endl;
@@ -255,8 +187,9 @@ int Database::UpdateMinMax(uint8_t minmax, uint8_t protocol, uint8_t address, vo
 	return 0;
 }
 
-int Database::InsertMinMaxAvg(uint8_t minmaxavg, uint8_t protocol, uint8_t address, void *data)
+int Database::InsertMinMaxAvg(uint8_t minmaxavg, PROTOCOL_STC *data)
 {
+	PROTOCOL_PORT_1_DATA_STC dyn_data;
 	string query;
 	switch(minmaxavg) {
 	case 0:
@@ -271,71 +204,20 @@ int Database::InsertMinMaxAvg(uint8_t minmaxavg, uint8_t protocol, uint8_t addre
 	default:
 		return -1;
 	}
-	ReplaceDecimal(address, query);
-	switch(protocol) {
-		case 1:
-			{
-				PROTOCOL_PORT_1_DATA_STC *data_1 = (PROTOCOL_PORT_1_DATA_STC*) data;
-//				ReplaceFloat(data_1->hdc1000_temp / 100.0, query);
-//				ReplaceFloat(data_1->hdc1000_humi / 100.0, query);
-//				ReplaceFloat(data_1->tmp102_temp / 100.0, query);
-//				ReplaceFloat(data_1->lps25h_temp / 100.0, query);
-//				ReplaceFloat(data_1->lps25h_press / 100.0, query);
-//				ReplaceFloat(data_1->si1147_uv / 100.0, query);
-//				ReplaceFloat(data_1->si1147_vis * 1.0, query);
-//				ReplaceFloat(data_1->si1147_ir * 1.0, query);
-//				ReplaceFloat(data_1->vbat / 100.0, query);
-//				ReplaceFloat(data_1->vsolar / 100.0, query);
-			}
-			break;
-		case 2:
-			{
-				PROTOCOL_PORT_2_DATA_STC *data_2 = (PROTOCOL_PORT_2_DATA_STC*) data;
-//				ReplaceFloat(data_2->hdc1000_temp / 100.0, query);
-//				ReplaceFloat(data_2->hdc1000_humi / 100.0, query);
-//				ReplaceFloat(data_2->tmp102_temp / 100.0, query);
-//				ReplaceFloat(data_2->lps25h_temp / 100.0, query);
-//				ReplaceFloat(data_2->lps25h_press / 100.0, query);
-//				ReplaceFloat(0.0, query);
-//				ReplaceFloat(0.0, query);
-//				ReplaceFloat(0.0, query);
-//				ReplaceFloat(data_2->vbat / 100.0, query);
-//				ReplaceFloat(data_2->vsolar / 100.0, query);
-			}
-			break;
-		case 3:
-			{
-				PROTOCOL_PORT_3_DATA_STC *data_3 = (PROTOCOL_PORT_3_DATA_STC*) data;
-//				ReplaceFloat(data_3->hdc1000_temp / 100.0, query);
-//				ReplaceFloat(data_3->hdc1000_humi / 100.0, query);
-//				ReplaceFloat(data_3->tmp102_temp / 100.0, query);
-//				ReplaceFloat(0.0, query);
-//				ReplaceFloat(0.0, query);
-//				ReplaceFloat(data_3->si1147_uv / 100.0, query);
-//				ReplaceFloat(data_3->si1147_vis * 1.0, query);
-//				ReplaceFloat(data_3->si1147_ir * 1.0, query);
-//				ReplaceFloat(data_3->vbat / 100.0, query);
-//				ReplaceFloat(data_3->vsolar / 100.0, query);
-			}
-			break;
-		case 4:
-			{
-				PROTOCOL_PORT_4_DATA_STC *data_4 = (PROTOCOL_PORT_4_DATA_STC*) data;
-//				ReplaceFloat(data_4->hdc1000_temp / 100.0, query);
-//				ReplaceFloat(data_4->hdc1000_humi / 100.0, query);
-//				ReplaceFloat(data_4->tmp102_temp / 100.0, query);
-//				ReplaceFloat(0.0, query);
-//				ReplaceFloat(0.0, query);
-//				ReplaceFloat(0.0, query);
-//				ReplaceFloat(0.0, query);
-//				ReplaceFloat(0.0, query);
-//				ReplaceFloat(data_4->vbat / 100.0, query);
-//				ReplaceFloat(data_4->vsolar / 100.0, query);
-			}
-			break;
-		default:
-			return -1;
-	}
+	ReplaceDecimal(data->header.dest_addr, query);
+	DynDataExtactor(data, &dyn_data);
+	ReplaceFloat(data->static_data.hdc1000_temp * HDC1000_TEMP_FACTOR, query);
+	ReplaceFloat(data->static_data.hdc1000_humi * HDC1000_HUMI_FACTOR, query);
+	ReplaceFloat(data->static_data.tmp102_temp * TMP102_TEMP_FACTOR, query);
+	ReplaceFloat(data->static_data.max17048_vcell * MAX17048_VCELL_FACTOR, query);
+	ReplaceFloat(data->static_data.max17048_charge * MAX17048_CHARGE_FACTOR, query);
+	ReplaceFloat(data->static_data.max17048_crate * MAX17048_CRATE_FACTOR, query);
+	ReplaceFloat(data->static_data.solar_voltage * MSP430_VSOLAR_FACTOR, query);
+	ReplaceFloat(dyn_data.lps25h_temp * LPS25H_TEMP_FACTOR, query);
+	ReplaceFloat(dyn_data.lps25h_press * LPS25H_PRESS_FACTOR, query);
+	ReplaceFloat(dyn_data.si1147_uv * SI1147_UV_FACTOR, query);
+	ReplaceFloat(dyn_data.si1147_vis * SI1147_VIS_FACTOR, query);
+	ReplaceFloat(dyn_data.si1147_ir * SI1147_IR_FACTOR, query);
 	MysqlQuery(query);
 #if MYSQL_DEBUG
 	cout << query << endl;
@@ -343,86 +225,40 @@ int Database::InsertMinMaxAvg(uint8_t minmaxavg, uint8_t protocol, uint8_t addre
 	return 0;
 }
 
-int Database::StoreData(uint8_t protocol, uint8_t address, uint8_t status, void *data)
+int Database::StoreData(PROTOCOL_STC *data)
 {
+	PROTOCOL_PORT_1_DATA_STC dyn_data;
 	string query;
 	stringstream table;
-	table << "Sensor" << (int)address << (int)protocol;
+	table << "Sensor" << (int)data->header.dest_addr << (int)data->header.protocol;
 	if(MysqlTableExists(table.str()) == 0) {
-		CreateSensor(protocol, address);
+		CreateSensor(data->header.protocol, data->header.dest_addr);
 	}
-	switch(protocol) {
-	case 1:
-		{
-			PROTOCOL_PORT_1_DATA_STC *data_1 = (PROTOCOL_PORT_1_DATA_STC*) data;
-			query.assign(mysql_insert_protocol_1_data);
-//			ReplaceString(table.str(), query);
-//			ReplaceFloat(data_1->hdc1000_temp / 100.0, query);
-//			ReplaceFloat(data_1->hdc1000_humi / 100.0, query);
-//			ReplaceFloat(data_1->tmp102_temp / 100.0, query);
-//			ReplaceFloat(data_1->lps25h_temp / 100.0, query);
-//			ReplaceFloat(data_1->lps25h_press / 100.0, query);
-//			ReplaceFloat(data_1->si1147_uv / 100.0, query);
-//			ReplaceFloat(data_1->si1147_vis * 1.0, query);
-//			ReplaceFloat(data_1->si1147_ir * 1.0, query);
-//			ReplaceFloat(data_1->vbat / 100.0, query);
-//			ReplaceFloat(data_1->vsolar / 100.0, query);
-		}
-		break;
-	case 2:
-		{
-			PROTOCOL_PORT_2_DATA_STC *data_2 = (PROTOCOL_PORT_2_DATA_STC*) data;
-			query.assign(mysql_insert_protocol_1_data);
-			ReplaceString(table.str(), query);
-//			ReplaceFloat(data_2->hdc1000_temp / 100.0, query);
-//			ReplaceFloat(data_2->hdc1000_humi / 100.0, query);
-//			ReplaceFloat(data_2->tmp102_temp / 100.0, query);
-//			ReplaceFloat(data_2->lps25h_temp / 100.0, query);
-//			ReplaceFloat(data_2->lps25h_press / 100.0, query);
-//			ReplaceFloat(data_2->vbat / 100.0, query);
-//			ReplaceFloat(data_2->vsolar / 100.0, query);
-		}
-		break;
-	case 3:
-		{
-			PROTOCOL_PORT_3_DATA_STC *data_3 = (PROTOCOL_PORT_3_DATA_STC*) data;
-			query.assign(mysql_insert_protocol_1_data);
-//			ReplaceString(table.str(), query);
-//			ReplaceFloat(data_3->hdc1000_temp / 100.0, query);
-//			ReplaceFloat(data_3->hdc1000_humi / 100.0, query);
-//			ReplaceFloat(data_3->tmp102_temp / 100.0, query);
-//			ReplaceFloat(data_3->si1147_uv / 100.0, query);
-//			ReplaceFloat(data_3->si1147_vis * 1.0, query);
-//			ReplaceFloat(data_3->si1147_ir * 1.0, query);
-//			ReplaceFloat(data_3->vbat / 100.0, query);
-//			ReplaceFloat(data_3->vsolar / 100.0, query);
-		}
-		break;
-	case 4:
-		{
-			PROTOCOL_PORT_4_DATA_STC *data_4 = (PROTOCOL_PORT_4_DATA_STC*) data;
-//			query.assign(mysql_insert_protocol_1_data);
-//			ReplaceString(table.str(), query);
-//			ReplaceFloat(data_4->hdc1000_temp / 100.0, query);
-//			ReplaceFloat(data_4->hdc1000_humi / 100.0, query);
-//			ReplaceFloat(data_4->tmp102_temp / 100.0, query);
-//			ReplaceFloat(data_4->vbat / 100.0, query);
-//			ReplaceFloat(data_4->vsolar / 100.0, query);
-		}
-		break;
-	default:
-		return -1;
-	}
+	query.assign(mysql_insert_protocol_data);
+	DynDataExtactor(data, &dyn_data);
+	ReplaceString(table.str(), query);
+	ReplaceFloat(data->static_data.hdc1000_temp * HDC1000_TEMP_FACTOR, query);
+	ReplaceFloat(data->static_data.hdc1000_humi * HDC1000_HUMI_FACTOR, query);
+	ReplaceFloat(data->static_data.tmp102_temp * TMP102_TEMP_FACTOR, query);
+	ReplaceFloat(data->static_data.max17048_vcell * MAX17048_VCELL_FACTOR, query);
+	ReplaceFloat(data->static_data.max17048_charge * MAX17048_CHARGE_FACTOR, query);
+	ReplaceFloat(data->static_data.max17048_crate * MAX17048_CRATE_FACTOR, query);
+	ReplaceFloat(data->static_data.solar_voltage * MSP430_VSOLAR_FACTOR, query);
+	ReplaceFloat(dyn_data.lps25h_temp * LPS25H_TEMP_FACTOR, query);
+	ReplaceFloat(dyn_data.lps25h_press * LPS25H_PRESS_FACTOR, query);
+	ReplaceFloat(dyn_data.si1147_uv * SI1147_UV_FACTOR, query);
+	ReplaceFloat(dyn_data.si1147_vis * SI1147_VIS_FACTOR, query);
+	ReplaceFloat(dyn_data.si1147_ir * SI1147_IR_FACTOR, query);
 	MysqlQuery(query);
 #if MYSQL_DEBUG
 	cout << query << endl;
 #endif
-	UpdateAvg(protocol, address, data);
-	UpdateMinMax(0, protocol, address, data);
-	UpdateMinMax(1, protocol, address, data);
+	UpdateAvg(data);
+	UpdateMinMax(0, data);
+	UpdateMinMax(1, data);
 	query.assign(mysql_update_sensors_active);
-	ReplaceDecimal(status, query);
-	ReplaceDecimal(address, query);
+	ReplaceDecimal(data->header.status, query);
+	ReplaceDecimal(data->header.dest_addr, query);
 	MysqlQuery(query);
 #if MYSQL_DEBUG
 	cout << query << endl;
@@ -459,22 +295,7 @@ int Database::CreateSensor(uint8_t protocol, uint8_t address)
 	string query;
 	stringstream table;
 	table << "Sensor" << (int)address << (int)protocol;
-	switch(protocol) {
-	case 1:
-		query.assign(mysql_table_protocol_1);
-		break;
-	case 2:
-		query.assign(mysql_table_protocol_2);
-		break;
-	case 3:
-		query.assign(mysql_table_protocol_3);
-		break;
-	case 4:
-		query.assign(mysql_table_protocol_4);
-		break;
-	default:
-		return -1;
-	}
+	query.assign(mysql_table_protocol);
 	ReplaceString(table.str(), query);
 	MysqlQuery(query);
 #if MYSQL_DEBUG

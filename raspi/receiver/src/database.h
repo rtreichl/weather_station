@@ -11,13 +11,14 @@
 #include <mysql/mysql.h>
 #include <stdint.h>
 #include <iostream>
+#include "protocol.h"
 
 class Database
 {
 public:
 	Database();
 	~Database();
-	int StoreData(uint8_t  protocol, uint8_t address, uint8_t status, void *data);
+	int StoreData(PROTOCOL_STC *data);
 private:
 	MYSQL *Connection;
 	MYSQL_RES *Result;
@@ -26,9 +27,10 @@ private:
 	int MysqlGetResult(void *data);
 	int MysqlTableExists(const std::string &table);
 	int MysqlTableAddIndex(const std::string &column, const std::string &table);
-	int UpdateMinMax(uint8_t minmax, uint8_t protocol, uint8_t address, void *data);
-	int InsertMinMaxAvg(uint8_t minmaxavg, uint8_t protocol, uint8_t address, void *data);
-	int UpdateAvg(uint8_t protocol, uint8_t address, void *data);
+	int UpdateMinMax(uint8_t minmax, PROTOCOL_STC *data);
+	int InsertMinMaxAvg(uint8_t minmaxavg, PROTOCOL_STC *data);
+	int DynDataExtactor(PROTOCOL_STC *data, PROTOCOL_PORT_1_DATA_STC *dyn_data);
+	int UpdateAvg(PROTOCOL_STC *data);
 	int ReplaceDecimal(uint8_t number, std::string &query);
 	int ReplaceFloat(float number, std::string &query);
 	int ReplaceString(const std::string &str, std::string &query);
