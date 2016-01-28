@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -11647,7 +11647,7 @@ www.johansontechnology.com&lt;p&gt;
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="R210" library="rcl" deviceset="R-EU_" device="R0603" value="13M">
+<part name="R210" library="rcl" deviceset="R-EU_" device="R0603" value="7M32">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
@@ -11657,7 +11657,7 @@ www.johansontechnology.com&lt;p&gt;
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="R230" library="rcl" deviceset="R-EU_" device="R0603" value="7M8">
+<part name="R230" library="rcl" deviceset="R-EU_" device="R0603" value="8M3">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
@@ -11667,7 +11667,7 @@ www.johansontechnology.com&lt;p&gt;
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
 </part>
-<part name="R231" library="rcl" deviceset="R-EU_" device="R0603" value="5M2">
+<part name="R231" library="rcl" deviceset="R-EU_" device="R0603" value="4M7">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>

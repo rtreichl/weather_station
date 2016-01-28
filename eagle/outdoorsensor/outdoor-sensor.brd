@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -63,7 +63,7 @@
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
-<layer number="90" name="Modules" color="5" fill="1" visible="no" active="yes"/>
+<layer number="90" name="Modules" color="5" fill="1" visible="no" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="no" active="no"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="no" active="no"/>
 <layer number="93" name="Pins" color="2" fill="1" visible="no" active="no"/>
@@ -4197,6 +4197,9 @@ Your Eurocircuits Team
 <autorouter>
 <pass name="Default">
 <param name="RoutingGrid" value="50mil"/>
+<param name="AutoGrid" value="1"/>
+<param name="Efforts" value="0"/>
+<param name="TopRouterVariant" value="1"/>
 <param name="tpViaShape" value="round"/>
 <param name="PrefDir.1" value="|"/>
 <param name="PrefDir.2" value="0"/>
@@ -4414,7 +4417,7 @@ Your Eurocircuits Team
 <attribute name="MF" value="" x="37.1475" y="10.16" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MPN" value="" x="37.1475" y="10.16" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R210" library="rcl" package="R0603" value="13M" x="36.5125" y="21.9075" smashed="yes">
+<element name="R210" library="rcl" package="R0603" value="7M32" x="36.5125" y="21.9075" smashed="yes">
 <attribute name="NAME" x="36.5125" y="20.32" size="1.016" layer="25" align="center"/>
 <attribute name="VALUE" x="35.8775" y="20.0025" size="1.27" layer="27"/>
 <attribute name="OC_FARNELL" value="unknown" x="36.5125" y="21.9075" size="1.778" layer="27" display="off"/>
@@ -4428,7 +4431,7 @@ Your Eurocircuits Team
 <attribute name="MF" value="" x="33.02" y="24.4475" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="33.02" y="24.4475" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R230" library="rcl" package="R0603" value="7M8" x="29.5275" y="21.9075" smashed="yes">
+<element name="R230" library="rcl" package="R0603" value="8M3" x="29.5275" y="21.9075" smashed="yes">
 <attribute name="NAME" x="29.5275" y="23.1775" size="1.016" layer="25" align="center"/>
 <attribute name="VALUE" x="28.8925" y="20.0025" size="1.27" layer="27"/>
 <attribute name="OC_FARNELL" value="unknown" x="29.5275" y="21.9075" size="1.778" layer="27" display="off"/>
@@ -4442,7 +4445,7 @@ Your Eurocircuits Team
 <attribute name="MF" value="" x="33.02" y="19.3675" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="33.02" y="19.3675" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R231" library="rcl" package="R0603" value="5M2" x="29.5275" y="19.3675" smashed="yes" rot="R180">
+<element name="R231" library="rcl" package="R0603" value="4M7" x="29.5275" y="19.3675" smashed="yes" rot="R180">
 <attribute name="NAME" x="29.5275" y="18.25625" size="1.016" layer="25" rot="R180" align="center"/>
 <attribute name="VALUE" x="30.1625" y="21.2725" size="1.27" layer="27" rot="R180"/>
 <attribute name="OC_FARNELL" value="unknown" x="29.5275" y="19.3675" size="1.778" layer="27" rot="R180" display="off"/>
@@ -5506,7 +5509,7 @@ Your Eurocircuits Team
 <via x="6.19125" y="27.78125" extent="1-16" drill="0.3"/>
 <via x="5.3975" y="31.4325" extent="1-16" drill="0.3"/>
 <via x="4.1275" y="33.3375" extent="1-16" drill="0.3"/>
-<via x="6.19125" y="33.81375" extent="1-16" drill="0.3"/>
+<wire x1="6.19125" y1="33.81375" x2="6.19125" y2="33.81375" width="0" layer="19" extent="1-16"/>
 <via x="6.19125" y="34.76625" extent="1-16" drill="0.3"/>
 <via x="3.96875" y="37.1475" extent="1-16" drill="0.3"/>
 <via x="4.1275" y="34.44875" extent="1-16" drill="0.3"/>
