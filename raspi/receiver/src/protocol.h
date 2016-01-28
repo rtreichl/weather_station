@@ -99,6 +99,21 @@ typedef struct  __attribute__((__packed__)) {
 	uint8_t dyn_data[PROTOCOL_DYNAMIC_BUFFER_SIZE];
 } PROTOCOL_STC;
 
+#define HDC1000_TEMP_FACTOR			1.0 / 65535.0 * 165.0 - 40.0
+#define HDC1000_HUMI_FACTOR			1.0 / 65535.0 * 100.0
+#define TMP102_TEMP_FACTOR			0.0625 * 2.0
+#define LPS25H_TEMP_FACTOR			1.0 / 480.0 + 42.5
+#define LPS25H_PRESS_FACTOR			1.0 / 4096.0
+#define SI1147_IR_FACTOR			1.0
+#define SI1147_VIS_FACTOR			1.0
+#define SI1147_UV_FACTOR			1.0 / 100.0
+#define MAX17048_VCELL_FACTOR		78.125 / 1000000.0
+#define MAX17048_CHARGE_FACTOR		1.0 / 256.0
+#define MAX17048_CRATE_FACTOR		0.208
+#define MSP430_VSOLAR_FACTOR		1.5 / 1024.0
+
+
+
 void protocol_decoder(PROTOCOL_STC *protocol);
 
 #endif /* PROTOCOL_H_ */
