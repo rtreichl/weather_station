@@ -29,9 +29,11 @@ private:
 	int MysqlTableAddIndex(const std::string &column, const std::string &table);
 	int UpdateMinMax(uint8_t minmax, PROTOCOL_STC *data);
 	int InsertMinMaxAvg(uint8_t minmaxavg, PROTOCOL_STC *data);
+	int InsertActAvg(PROTOCOL_STC *data, uint32_t samples_per_hr, uint32_t hr);
 	int DynDataExtactor(PROTOCOL_STC *data, PROTOCOL_PORT_1_DATA_STC *dyn_data);
 	int UpdateAvg(PROTOCOL_STC *data);
-	int ReplaceDecimal(uint8_t number, std::string &query);
+	int UpdateActAvgs(PROTOCOL_STC *data, uint32_t samples_per_hr, uint32_t hr);
+	int ReplaceDecimal(int32_t number, std::string &query);
 	int ReplaceFloat(float number, std::string &query);
 	int ReplaceString(const std::string &str, std::string &query);
 };

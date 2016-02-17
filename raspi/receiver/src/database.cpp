@@ -31,6 +31,9 @@ Database::Database()
 	if(MysqlTableExists("SensorsAvg") == 0) {
 		MysqlQuery(mysql_table_avg_values);
 	}
+	if(MysqlTableExists("SensorsActAvg") == 0) {
+		MysqlQuery(mysql_table_act_avg_values);
+	}
 	if(MysqlTableExists("SensorsMax") == 0) {
 		MysqlQuery(mysql_table_max_values);
 	}
@@ -53,6 +56,7 @@ int Database::DynDataExtactor(PROTOCOL_STC *data, PROTOCOL_PORT_1_DATA_STC *dyn_
 		dyn_data->si1147_uv = ptr_dyn_data->si1147_uv;
 		dyn_data->si1147_vis = ptr_dyn_data->si1147_vis;
 		dyn_data->si1147_ir = ptr_dyn_data->si1147_ir;
+		dyn_data->append.rssi = ptr_dyn_data->append.rssi;
 	}
 		break;
 	case PROTOCOL_2: {
@@ -63,6 +67,7 @@ int Database::DynDataExtactor(PROTOCOL_STC *data, PROTOCOL_PORT_1_DATA_STC *dyn_
 		dyn_data->si1147_uv = 0;
 		dyn_data->si1147_vis = 0;
 		dyn_data->si1147_ir = 0;
+		dyn_data->append.rssi = ptr_dyn_data->append.rssi;
 	}
 		break;
 	case PROTOCOL_3: {
@@ -73,6 +78,7 @@ int Database::DynDataExtactor(PROTOCOL_STC *data, PROTOCOL_PORT_1_DATA_STC *dyn_
 		dyn_data->si1147_uv = ptr_dyn_data->si1147_uv;
 		dyn_data->si1147_vis = ptr_dyn_data->si1147_vis;
 		dyn_data->si1147_ir = ptr_dyn_data->si1147_ir;
+		dyn_data->append.rssi = ptr_dyn_data->append.rssi;
 	}
 		break;
 	case PROTOCOL_4: {
@@ -83,6 +89,7 @@ int Database::DynDataExtactor(PROTOCOL_STC *data, PROTOCOL_PORT_1_DATA_STC *dyn_
 		dyn_data->si1147_uv = 0;
 		dyn_data->si1147_vis = 0;
 		dyn_data->si1147_ir = 0;
+		dyn_data->append.rssi = ptr_dyn_data->append.rssi;
 	}
 		break;
 	default:
@@ -120,6 +127,46 @@ int Database::UpdateAvg(PROTOCOL_STC *data)
 		ReplaceFloat(dyn_data.si1147_uv * SI1147_UV_FACTOR, query);
 		ReplaceFloat(dyn_data.si1147_vis * SI1147_VIS_FACTOR, query);
 		ReplaceFloat(dyn_data.si1147_ir * SI1147_IR_FACTOR, query);
+		ReplaceFloat(dyn_data.append.rssi * 1.0, query);
+		MysqlQuery(query);
+#if MYSQL_DEBUG
+		cout << query << endl;
+#endif
+	}
+	return 0;
+}
+
+int Database::UpdateActAvgs(PROTOCOL_STC *data, uint32_t samples_per_hr, uint32_t hr)
+{
+	PROTOCOL_PORT_1_DATA_STC dyn_data;
+	string query = mysql_select_sensorsactavg;
+	ReplaceDecimal(data->header.dest_addr, query);
+	ReplaceDecimal(samples_per_hr * hr, query);
+	MysqlQuery(query);
+#if MYSQL_DEBUG
+	cout << query << endl;
+#endif
+	if(mysql_num_rows(this->Result) == 0){
+		InsertActAvg(data, samples_per_hr, hr);
+	}
+	else {
+		query.assign(mysql_update_sensors_act_avgs);
+		DynDataExtactor(data, &dyn_data);
+		ReplaceDecimal(data->header.dest_addr, query);
+		ReplaceDecimal(samples_per_hr * hr, query);
+		ReplaceFloat(data->static_data.hdc1000_temp * HDC1000_TEMP_FACTOR, query);
+		ReplaceFloat(data->static_data.hdc1000_humi * HDC1000_HUMI_FACTOR, query);
+		ReplaceFloat(data->static_data.tmp102_temp * TMP102_TEMP_FACTOR, query);
+		ReplaceFloat(data->static_data.max17048_vcell * MAX17048_VCELL_FACTOR, query);
+		ReplaceFloat(data->static_data.max17048_charge * MAX17048_CHARGE_FACTOR, query);
+		ReplaceFloat(data->static_data.max17048_crate * MAX17048_CRATE_FACTOR, query);
+		ReplaceFloat(data->static_data.solar_voltage * MSP430_VSOLAR_FACTOR, query);
+		ReplaceFloat(dyn_data.lps25h_temp * LPS25H_TEMP_FACTOR, query);
+		ReplaceFloat(dyn_data.lps25h_press * LPS25H_PRESS_FACTOR, query);
+		ReplaceFloat(dyn_data.si1147_uv * SI1147_UV_FACTOR, query);
+		ReplaceFloat(dyn_data.si1147_vis * SI1147_VIS_FACTOR, query);
+		ReplaceFloat(dyn_data.si1147_ir * SI1147_IR_FACTOR, query);
+		ReplaceFloat(dyn_data.append.rssi * 1.0, query);
 		MysqlQuery(query);
 #if MYSQL_DEBUG
 		cout << query << endl;
@@ -179,6 +226,8 @@ int Database::UpdateMinMax(uint8_t minmax, PROTOCOL_STC *data)
 		ReplaceFloat(dyn_data.si1147_vis * SI1147_VIS_FACTOR, query);
 		ReplaceFloat(dyn_data.si1147_ir * SI1147_IR_FACTOR, query);
 		ReplaceFloat(dyn_data.si1147_ir * SI1147_IR_FACTOR, query);
+		ReplaceFloat(dyn_data.append.rssi * 1.0, query);
+		ReplaceFloat(dyn_data.append.rssi * 1.0, query);
 		MysqlQuery(query);
 #if MYSQL_DEBUG
 		cout << query << endl;
@@ -218,6 +267,35 @@ int Database::InsertMinMaxAvg(uint8_t minmaxavg, PROTOCOL_STC *data)
 	ReplaceFloat(dyn_data.si1147_uv * SI1147_UV_FACTOR, query);
 	ReplaceFloat(dyn_data.si1147_vis * SI1147_VIS_FACTOR, query);
 	ReplaceFloat(dyn_data.si1147_ir * SI1147_IR_FACTOR, query);
+	ReplaceFloat(dyn_data.append.rssi * 1.0, query);
+	MysqlQuery(query);
+#if MYSQL_DEBUG
+	cout << query << endl;
+#endif
+	return 0;
+}
+
+int Database::InsertActAvg(PROTOCOL_STC *data, uint32_t samples_per_hr, uint32_t hr)
+{
+	PROTOCOL_PORT_1_DATA_STC dyn_data;
+	string query;
+	query.assign(mysql_insert_sensorsactavg);
+	ReplaceDecimal(data->header.dest_addr, query);
+	ReplaceDecimal(samples_per_hr * hr, query);
+	DynDataExtactor(data, &dyn_data);
+	ReplaceFloat(data->static_data.hdc1000_temp * HDC1000_TEMP_FACTOR, query);
+	ReplaceFloat(data->static_data.hdc1000_humi * HDC1000_HUMI_FACTOR, query);
+	ReplaceFloat(data->static_data.tmp102_temp * TMP102_TEMP_FACTOR, query);
+	ReplaceFloat(data->static_data.max17048_vcell * MAX17048_VCELL_FACTOR, query);
+	ReplaceFloat(data->static_data.max17048_charge * MAX17048_CHARGE_FACTOR, query);
+	ReplaceFloat(data->static_data.max17048_crate * MAX17048_CRATE_FACTOR, query);
+	ReplaceFloat(data->static_data.solar_voltage * MSP430_VSOLAR_FACTOR, query);
+	ReplaceFloat(dyn_data.lps25h_temp * LPS25H_TEMP_FACTOR, query);
+	ReplaceFloat(dyn_data.lps25h_press * LPS25H_PRESS_FACTOR, query);
+	ReplaceFloat(dyn_data.si1147_uv * SI1147_UV_FACTOR, query);
+	ReplaceFloat(dyn_data.si1147_vis * SI1147_VIS_FACTOR, query);
+	ReplaceFloat(dyn_data.si1147_ir * SI1147_IR_FACTOR, query);
+	ReplaceFloat(dyn_data.append.rssi * 1.0, query);
 	MysqlQuery(query);
 #if MYSQL_DEBUG
 	cout << query << endl;
@@ -249,11 +327,14 @@ int Database::StoreData(PROTOCOL_STC *data)
 	ReplaceFloat(dyn_data.si1147_uv * SI1147_UV_FACTOR, query);
 	ReplaceFloat(dyn_data.si1147_vis * SI1147_VIS_FACTOR, query);
 	ReplaceFloat(dyn_data.si1147_ir * SI1147_IR_FACTOR, query);
+	ReplaceFloat(dyn_data.append.rssi * 1.0, query);
 	MysqlQuery(query);
 #if MYSQL_DEBUG
 	cout << query << endl;
 #endif
 	UpdateAvg(data);
+	UpdateActAvgs(data, 90, 1); //Average over 1hr
+	UpdateActAvgs(data, 90, 3); //Average over 3hr
 	UpdateMinMax(0, data);
 	UpdateMinMax(1, data);
 	query.assign(mysql_update_sensors_active);
@@ -272,12 +353,11 @@ int Database::ReplaceString(const string &str, std::string &query)
 	return 0;
 }
 
-int Database::ReplaceDecimal(uint8_t number, std::string &query)
+int Database::ReplaceDecimal(int32_t number, std::string &query)
 {
-	char replace[2];
-	replace[0] = '0' + number;
-	replace[1] = 0;
-	query.replace(query.find("%d" , 0, 2), 2, replace);
+	ostringstream convert;
+	convert << static_cast<int>(number);
+	query.replace(query.find("%d" , 0, 2), 2, convert.str().c_str());
 	return 0;
 }
 
