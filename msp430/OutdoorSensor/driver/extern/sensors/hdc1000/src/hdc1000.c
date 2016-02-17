@@ -21,7 +21,7 @@
 
 volatile uint8_t HDC1000_PedingInterrupt;
 
-void HDC1000_InterruptHandler();
+uint16_t HDC1000_InterruptHandler(uint8_t pin);
 
 uint16_t HDC1000_init()
 {
@@ -47,8 +47,10 @@ uint16_t HDC1000_init()
 	HDC1000_INTERRUPT_POUT |= HDC1000_INTERRUPT_BIT;
 	HDC1000_INTERRUPT_PIES |= HDC1000_INTERRUPT_BIT;
 
-	ext_interrupt_create(HDC1000_INTERRUPT_NUM, HDC1000_InterruptHandler);
-	ext_interrupt_enable(HDC1000_INTERRUPT_NUM);
+	GpioAttachISR(GPIO8_PORT1, GPIO_PIN2, HDC1000_InterruptHandler);
+	GpioEnableInterupt(GPIO8_PORT1, GPIO_PIN2);
+	//ext_interrupt_create(HDC1000_INTERRUPT_NUM, HDC1000_InterruptHandler);
+	//ext_interrupt_enable(HDC1000_INTERRUPT_NUM);
 	return 0;
 }
 
@@ -144,8 +146,8 @@ uint16_t HDC1000_ReadHumidity()
 	return ((uint32_t)HDC1000_ReadRawHumidity() * 10000) >> 16;
 }
 
-void HDC1000_InterruptHandler()
+uint16_t HDC1000_InterruptHandler(uint8_t pin)
 {
 	HDC1000_PedingInterrupt = 1;
-	return;
+	return 0;
 }

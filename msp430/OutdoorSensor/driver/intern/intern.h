@@ -21,7 +21,7 @@
 
 #include <intern/i2c/i2c.h>
 #include <intern/spi/spi.h>
-#include <intern/ext_interrupt/ext_interrupt.h>
+#include <intern/gpio/gpio.h>
 #include <intern/adc/adc.h>
 
 #endif /* DRIVER_INTERN_INTERN_H_ */

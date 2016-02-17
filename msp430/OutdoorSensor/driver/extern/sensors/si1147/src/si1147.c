@@ -26,7 +26,7 @@ uint8_t si1147_read_param(uint8_t param);
 
 void si1147_irq_enable();
 void si1147_als_irq_enable();
-void si1147_irq_handler();
+uint16_t si1147_irq_handler(uint8_t pin);
 void si1147_reset();
 
 volatile uint8_t SI1147_Interrupt = 0;
@@ -160,8 +160,10 @@ void si1147_irq_enable()
 	SI1147_IRQ_PREN |= SI1147_IRQ_BIT;
 	SI1147_IRQ_POUT |= SI1147_IRQ_BIT;
 	SI1147_IRQ_PIES |= SI1147_IRQ_BIT;
-	ext_interrupt_create(SI1147_IRQ_NUM, si1147_irq_handler);
-	ext_interrupt_enable(SI1147_IRQ_NUM);
+	GpioAttachISR(GPIO8_PORT1, GPIO_PIN0, si1147_irq_handler);
+	GpioEnableInterupt(GPIO8_PORT1, GPIO_PIN0);
+	//ext_interrupt_create(SI1147_IRQ_NUM, si1147_irq_handler);
+	//ext_interrupt_enable(SI1147_IRQ_NUM);
 //  nvic_interrupt_enable(NVIC_INT_GPIO_PORT_C);
 //  gpio_register_callback((gpio_callback_t)si1147_irq_handler, SI1147_IRQ_PORT, SI1147_IRQ_PIN);
 
@@ -181,9 +183,9 @@ void si1147_single_conv()
 	return;
 }
 
-void si1147_irq_handler() {
+uint16_t si1147_irq_handler(uint8_t pin) {
   SI1147_Interrupt = 1;
-  return;
+  return 0;
 }
 
 void si1147_reset() {
