@@ -12,7 +12,10 @@
 
 #include <stdint.h>
 
-#define CC110L_DEBUG 1
+#define CC110L_DEBUG_LEVEL_1 1
+#define CC110L_DEBUG_LEVEL_2 2
+#define CC110L_DEBUG_LEVEL_3 3
+#define CC110L_DEBUG CC110L_DEBUG_LEVEL_1
 
 #define CC110L_RSSI_OFFSET 	74	//74dbm
 #define CC110L_SPI_BURST 	0x40
@@ -138,9 +141,6 @@
 #define CC110L_STATE_TXFIFO_ERROR       7
 
 #define CC110L_BUFFER_SIZE 255
-
-#define CC110L_GPO2 23
-
 
 /******************************************************************************
  * TYPEDEFS
@@ -455,7 +455,7 @@ int delay(unsigned long nano);
 class CC110L
 {
 public:
-	CC110L();
+	CC110L(CC110L_CONFIG *Config);
 	~CC110L();
 	int SendData(char *Data);
 	char GetData();
@@ -467,28 +467,23 @@ public:
 	void PrintStatusRegisters();
 	int ConfigDSR(void *(*function)(void *));
 	int16_t RssiConvertion(uint8_t rssi_dec);
-	/*
-	rfStatus_t cc11xLSpiWriteReg(uint8 addr, uint8 *pData, uint8 len);    
-	rfStatus_t cc11xLGetTxStatus(void);
-	rfStatus_t cc11xLGetRxStatus(void);                                                                        
-	rfStatus_t cc11xLSpiReadReg(uint8 addr, uint8 *pData, uint8 len);  
-	rfStatus_t cc11xLSpiWriteTxFifo(uint8 *pData, uint8 len);
-	rfStatus_t cc11xLSpiReadRxFifo(uint8 *pData, uint8 len);  */
 	pthread_mutex_t mutex;
 	pthread_cond_t condition;
 	pthread_t DSR = 0;
 private:
+	static void RX(int gpio, int level, uint32_t tick, void  *userdata);
+	int SpiWrite(uint8_t reg, void *TXBuffer, uint16_t n_bytes);
+	int SpiRead(uint8_t reg, void *RXBuffer, uint16_t n_bytes);
+	int TX();
+	int RxAvailableNum();
+	int WritePATable(uint16_t PATable);
+	int ReadPATable();
+
 	CC110L_CONFIG ConfigReg;
 	CC110L_STATUS StatusReg;
 	CC110L_STATUS_STC Status;
 	int Device;
-	int SpiWrite(uint8_t reg, void *TXBuffer, uint16_t n_bytes);
-	int SpiRead(uint8_t reg, void *RXBuffer, uint16_t n_bytes);
-	int TX();
-	static void RX(int gpio, int level, uint32_t tick, void  *userdata);
-	int RxAvailableNum();
-	int WritePATable(uint16_t PATable);
-	int ReadPATable();
+	bool RxBufferOverThres = 0;
 	unsigned char RXBufferRead = 0;
 	unsigned char RXBufferWrite = 0;
 	char RXBuffer[CC110L_BUFFER_SIZE];

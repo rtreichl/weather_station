@@ -12,6 +12,7 @@ using namespace std;
 #define CC110L_MISO 9
 #define CC110L_SPI_CS 15
 #define CC110L_GPO0 18
+#define CC110L_GPO2 23
 
 int delay(unsigned long nano)
 {
@@ -24,15 +25,19 @@ int delay(unsigned long nano)
 	return (err);
 }
 
-CC110L::CC110L()
+CC110L::CC110L(CC110L_CONFIG *Config)
 {
 	gpioSetMode(CC110L_SPI_CS, PI_OUTPUT);
 	gpioSetMode(CC110L_GPO2, PI_INPUT);
+	gpioSetISRFuncEx(CC110L_GPO2, RISING_EDGE, 1000, this->RX, (void *)(this));
 	if ((this->Device = spiOpen(CC110L_SPI_BUS, CC110L_SPI_BAUD, PI_SPI_FLAGS_RESVD(1))) < 0)
 	{
 		cout << "Error can't initialize SPI!";
 	}
-	gpioSetISRFuncEx(CC110L_GPO2, RISING_EDGE, 0, this->RX, (void *)(this));
+	SendCommand(CC110L_COMMAND_SRES);
+	delay(50000000);
+	WriteConfig(Config);
+	delay(100000000);
 }
 
 CC110L::~CC110L()
@@ -92,19 +97,15 @@ int CC110L::SpiWrite(uint8_t reg, void *TXBuffer, uint16_t n_bytes)
 int CC110L::SendCommand(char command)
 {
 	SpiWrite(command, 0, 0);
-#if CC110L_DEBUG
-	PrintStatusByte();
-#endif
  	return 0;
 }
 
 int CC110L::CheckConfig()
 {
-	char addr;
 	CC110L_CONFIG config_tmp;
 	SpiRead(CC110L_IOCFG2, &config_tmp, CC110L_TEST0 + 1);
 	if(memcmp(&config_tmp, &this->ConfigReg, CC110L_TEST0 + 1) == 0) {
-#if CC110L_DEBUG
+#if CC110L_DEBUG >= CC110L_DEBUG_LEVEL_1
 		cout << "##########################################" << endl;
 		cout << "Configuration is valid" << endl;
 		cout << "##########################################" << endl << endl;
@@ -112,7 +113,7 @@ int CC110L::CheckConfig()
 		return 0;
 	}
 	else {
-#if CC110L_DEBUG
+#if CC110L_DEBUG >= CC110L_DEBUG_LEVEL_3
 		cout << "##########################################" << endl;
 		cout << "Configuration check failed" << endl;
 		char *config = (char *)&config_tmp;
@@ -171,7 +172,7 @@ int CC110L::ReadStatus()
 {
 	for (int i = 0; i < CC110L_RESERVED_0X3D - CC110L_PARTNUM; i++)
 	{
-		SpiRead(CC110L_PARTNUM + i, ((char *)&this->StatusReg) + i, 1);
+		SpiRead(CC110L_PARTNUM + CC110L_SPI_BURST + i, ((char *)&this->StatusReg) + i, 1);
 	}
 	return 0;
 }
@@ -191,7 +192,7 @@ int CC110L::ConfigDSR(void *(*func)(void *))
 
 void CC110L::PrintStatusRegisters()
 {
-#if CC110L_DEBUG
+#if CC110L_DEBUG >= CC110L_DEBUG_LEVEL_1
 	cout << "############ Status registers ############" << endl;
 	cout << "Partnumber: 0x" << hex << (int)this->StatusReg.PARTNUM << endl;
 	cout << "Verstion: 0x" << hex << (int)this->StatusReg.VERSION << endl;
@@ -323,7 +324,7 @@ void CC110L::PrintStatusRegisters()
 
 void CC110L::PrintStatusByte()
 {
-#if CC110L_DEBUG
+#if CC110L_DEBUG >= CC110L_DEBUG_LEVEL_1
 	cout << "################# Status #################" << endl;
 	if(this->Status.CHIP_RDYn == 0) {
 		cout << "Device ready" << endl;
@@ -367,30 +368,53 @@ void CC110L::PrintStatusByte()
 void CC110L::RX(int gpio, int level, uint32_t tick, void  *userdata)
 {
 	CC110L *cc110l = (CC110L *)userdata;
-	int8_t Num;
-	char addr = CC110L_RXFIFO + 0x40;
+	uint8_t Num;
+
+	/* if timeout check for gpio level if still high return*/
+	if(level == PI_TIMEOUT && gpioRead(gpio) == 0) {
+		return;
+	}
+
 	Num = cc110l->RxAvailableNum();
-	gpioWrite(CC110L_SPI_CS, PI_LOW);
-	while (gpioRead(CC110L_MISO))
-	{
+
+	if(Num == 0) {
+		return;
 	}
-	spiXfer(cc110l->Device, &addr, (char*)&cc110l->Status, 1);
-	delay(200);
-	while (Num--) //Until dat Avialible
+
+#if CC110L_DEBUG >= CC110L_DEBUG_LEVEL_1
+	cout << "############## Interrupt ###############" << endl;
+	cout << "Level: " << static_cast<int>(level) << endl;
+	cout << "GPIO Level: " << static_cast<int>(gpioRead(gpio)) << endl;
+	cout << "Num Bytes: " << static_cast<int>(Num) << endl;
+	cout << "Read Pointer: " << static_cast<int>(cc110l->RXBufferRead) << endl;
+	cout << "Write Pointer: " << static_cast<int>(cc110l->RXBufferWrite) << endl;
+	cout << "########################################" << endl;
+#endif
+
+	if(cc110l->RXBufferWrite + Num < CC110L_BUFFER_SIZE &&
+		cc110l->RXBufferWrite + 1 > cc110l->RXBufferRead)
 	{
-		if ((cc110l->RXBufferWrite + 1 == cc110l->RXBufferRead) || (cc110l->RXBufferRead == 0 && cc110l->RXBufferWrite + 1 == CC110L_BUFFER_SIZE))
-		{
-			return; //BUFFER FULL
-		}
-		spiRead(cc110l->Device, &cc110l->RXBuffer[cc110l->RXBufferWrite], 1);
-		cc110l->RXBufferWrite++;
-		if (cc110l->RXBufferWrite >= CC110L_BUFFER_SIZE)
-		{
-			cc110l->RXBufferWrite = 0;
-		}
+		cc110l->SpiRead(CC110L_RXFIFO, &cc110l->RXBuffer[cc110l->RXBufferWrite], Num);
+		cc110l->RXBufferWrite += Num;
 	}
-	gpioWrite(CC110L_SPI_CS, PI_HIGH);
-	cc110l->SendCommand(CC110L_COMMAND_SRX);
+	else if(cc110l->RXBufferWrite + Num > CC110L_BUFFER_SIZE &&
+			cc110l->RXBufferRead + Num - (CC110L_BUFFER_SIZE - cc110l->RXBufferWrite)> 0)
+	{
+		cc110l->SpiRead(CC110L_RXFIFO, &cc110l->RXBuffer[cc110l->RXBufferWrite], CC110L_BUFFER_SIZE - cc110l->RXBufferWrite);
+		cc110l->SpiRead(CC110L_RXFIFO, &cc110l->RXBuffer[0], Num - (CC110L_BUFFER_SIZE - cc110l->RXBufferWrite));
+		cc110l->RXBufferWrite = Num - (CC110L_BUFFER_SIZE - cc110l->RXBufferWrite);
+
+	}
+	else if(cc110l->RXBufferWrite + Num == CC110L_BUFFER_SIZE &&
+			cc110l->RXBufferWrite > 0)
+	{
+		cc110l->SpiRead(CC110L_RXFIFO, &cc110l->RXBuffer[cc110l->RXBufferWrite], Num);
+		cc110l->RXBufferWrite = 0;
+	}
+	else {
+		return; //Buffer full
+	}
+	//cc110l->SendCommand(CC110L_COMMAND_SRX);
 	pthread_cond_signal(&cc110l->condition);
 }
 
@@ -398,7 +422,7 @@ int CC110L::RxAvailableNum()
 {
 	CC110L_RXBYTES_STC RXBytes;
 	SpiRead(CC110L_RXBYTES + CC110L_SPI_BURST, &RXBytes, 1);
-#if CC110L_DEBUG
+#if CC110L_DEBUG >= CC110L_DEBUG_LEVEL_2
 	cout << "##########################################" << endl;
 	cout << "Available bytes RxFifo: "  << static_cast<int>(RXBytes.NUM_TXBYTES) << endl;
 	if(RXBytes.RXFIFO_OVERFLOW == 1)
@@ -438,7 +462,7 @@ int CC110L::SendData(char *Data)
 {
 	while (1) //Until dat Avialible
 	{
-		if ((TXBufferWrite + 1 == TXBufferRead) || TXBufferRead == 0 && TXBufferWrite + 1 == CC110L_BUFFER_SIZE)
+		if ((TXBufferWrite + 1 == TXBufferRead || TXBufferRead == 0) && TXBufferWrite + 1 == CC110L_BUFFER_SIZE)
 		{
 			return -1; //BUFFER FULL
 		}
