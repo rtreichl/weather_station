@@ -23,5 +23,6 @@
 #include <intern/spi/spi.h>
 #include <intern/gpio/gpio.h>
 #include <intern/adc/adc.h>
+#include <intern/timer/timer.h>
 
 #endif /* DRIVER_INTERN_INTERN_H_ */

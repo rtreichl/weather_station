@@ -14,6 +14,9 @@ void delay_25ms(uint8_t multiple)
 
 }
 
+uint16_t T1_ISR(uint16_t count);
+
+
 /*
  * main.c
  */
@@ -29,9 +32,17 @@ int main(void) {
 	CSCTL2 = SELA_3 + SELS_3 + SELM_3;      // set ACLK = MCLK = DCO
 	CSCTL3 = DIVA_3 + DIVS_3 + DIVM_3;      // set all dividers to 1MHz
 	
-	TA0CCTL0 = CCIE;                          // TACCR0 interrupt enabled
-	TA0CCR0 = 3125;
-	TA0CTL = TASSEL_1 + ID_3 + MC_2;                 // SMCLK, continuous mode div 8
+	TimerConfig T1_Config = {0};
+	T1_Config.divider = 2;
+	T1_Config.mode = 3;
+	T1_Config.source = 2;
+
+	TimerCCRConfig T1_CCR1_Config = {0};
+	T1_CCR1_Config.ccie = 1;
+
+	TimerInit(TimerA0, &T1_Config);
+	TimerConfigCCR(TimerA0, CCR0, &T1_CCR1_Config, 3125);
+	TimerAttachISR(TimerA0, TimerA0CCR0ISR, T1_ISR);
 	__bis_SR_register(GIE);
 
 	delay_25ms(10); //fixed needed for tmp102
@@ -67,18 +78,10 @@ int main(void) {
 	return 0;
 }
 
-// Timer A0 interrupt service routine
-#if defined(__TI_COMPILER_VERSION__) || defined(__IAR_SYSTEMS_ICC__)
-#pragma vector = TIMER0_A0_VECTOR
-__interrupt void Timer_A (void)
-#elif defined(__GNUC__)
-void __attribute__ ((interrupt(TIMER0_A0_VECTOR))) Timer_A (void)
-#else
-#error Compiler not supported!
-#endif
+uint16_t T1_ISR(uint16_t count)
 {
   second++;
   TA0CCR0 += 3125;                         // Add Offset to TACCR0
-  __bic_SR_register_on_exit(CPUOFF);
+  return TIMER_EXIT_LPM;
 }
 
