@@ -24,5 +24,6 @@
 #include <intern/gpio/gpio.h>
 #include <intern/adc/adc.h>
 #include <intern/timer/timer.h>
+#include <intern/clock/clock.h>
 
 #endif /* DRIVER_INTERN_INTERN_H_ */
