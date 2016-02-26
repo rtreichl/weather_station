@@ -195,7 +195,8 @@ uint8_t i2c_write_arr(uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_size
 //		_delay_ten_us(20);
 //	}
 
-	i2c.status = IDLE;
+	if(i2c.status < NACK)
+		i2c.status = IDLE;
 
 	return 0;
 
@@ -309,6 +310,16 @@ uint8_t i2c_write_arr_endian(uint8_t addr, enum I2C_CRTL_CMD rept_start, int8_t 
 
 }
 
+int16_t i2c_slave_check(uint8_t addr)
+{
+	i2c_write_arr(addr, STOP, 1, 0);
+	if(i2c.status == NACK) {
+		i2c.status = IDLE;
+		return -1;
+	}
+	return 1;
+}
+
 uint8_t i2c_get_status()
 {
 	return i2c.status;
@@ -331,6 +342,7 @@ void __attribute__ ((interrupt(USCI_B0_VECTOR))) USCIB0_ISR (void)
       case 0x02: break; // Vector 2: ALIFG break;
       case 0x04:
                  UCB0CTL1 |= UCTXSTP; // I2C start condition
+                 i2c.status = NACK;
                  __bic_SR_register_on_exit(CPUOFF); // Exit LPM0
       break; // Vector 4: NACKIFG break;
       case 0x06: break; // Vector 6: STTIFG break;
