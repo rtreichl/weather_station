@@ -25,5 +25,6 @@
 #include <intern/adc/adc.h>
 #include <intern/timer/timer.h>
 #include <intern/clock/clock.h>
+#include <intern/1wire/1wire.h>
 
 #endif /* DRIVER_INTERN_INTERN_H_ */
