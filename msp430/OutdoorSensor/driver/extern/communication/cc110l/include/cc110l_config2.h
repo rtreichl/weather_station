@@ -24,7 +24,7 @@
 #define PA_TABLE {0x50,0x00,}
 
 // Rf settings for CC110L
-uint8_t CC110L_Settings[0x2F] = {
+const uint8_t CC110L_Settings[0x2F] = {
 	0x07,   // IOCFG2             GDO2 Output Pin Configuration
 	0x2E,   // IOCFG1             GDO1 Output Pin Configuration
 	0x06,   // IOCFG0             GDO0 Output Pin Configuration
