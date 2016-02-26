@@ -21,7 +21,7 @@
 
 #include <msp430.h>
 #include <stdint.h>
-#include "../lib/endian.h"
+#include <library.h>
 
 #include <intern/intern.h>
 #include <extern/extern.h>
