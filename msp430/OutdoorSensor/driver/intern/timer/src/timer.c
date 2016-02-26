@@ -56,7 +56,7 @@ void TimerInit(Timer timer, TimerConfig *config)
 
 void TimerConfigCCR(Timer timer, TimerCCR ccr, TimerCCRConfig *config, uint16_t ccr_value)
 {
-	TIMER_CCTL(timer, ccr) = *(uint16_t *)config;
+	TIMER_CCTL(timer, ccr) = *((uint16_t *)config);
 	TIMER_CCR(timer, ccr) = ccr_value;
 	return;
 }
@@ -148,5 +148,11 @@ void TimerDetachISR(Timer timer, TimerISR isr)
 uint16_t TimerGetCount(Timer timer)
 {
 	return TIMER_R(timer);
+}
+
+uint16_t TimerSetCCR(Timer timer, TimerCCR ccr, uint16_t ccr_value)
+{
+	TIMER_CCR(timer, ccr) = ccr_value;
+	return 0;
 }
 

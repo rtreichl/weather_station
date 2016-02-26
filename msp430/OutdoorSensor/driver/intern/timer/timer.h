@@ -35,5 +35,6 @@ void TimerAttachISR(Timer timer, TimerISR isr, timerptrfunc isrfnc);
 void TimerDetachISR(Timer timer, TimerISR isr);
 void TimerConfigCCR(Timer timer, TimerCCR ccr, TimerCCRConfig *config, uint16_t ccr_value);
 uint16_t TimerGetCount(Timer timer);
+uint16_t TimerSetCCR(Timer timer, TimerCCR ccr, uint16_t ccr_value);
 
 #endif /* DRIVER_INTERN_TIMER_TIMER_H_ */
