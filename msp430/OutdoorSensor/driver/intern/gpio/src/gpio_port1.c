@@ -22,7 +22,7 @@
 #ifdef PORT1_VECTOR
 #if GPIO_PORT1_INTERRUPT == GPIO_INTERRUPT_ON
 
-gpio_ptrfunc gpio1_isrs[8];
+volatile gpio_ptrfunc gpio1_isrs[8] = {0};
 
 #pragma vector = PORT1_VECTOR
 __interrupt void Port1_isr(void)
