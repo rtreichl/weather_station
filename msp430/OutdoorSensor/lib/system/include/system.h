@@ -1,10 +1,10 @@
 ///----------------------------------------------------------------------------------------
 ///
-/// \file endian.h
+/// \file system.h
 ///
 /// \brief 
 ///
-/// \date 31.12.2015
+/// \date 25.02.2016
 ///
 /// \author Richard Treichl
 ///
@@ -16,10 +16,15 @@
 ///
 ///----------------------------------------------------------------------------------------
 
-#ifndef ENDIAN_H_
-#define ENDIAN_H_
+#ifndef LIB_SYSTEM_SYSTEM_H_
+#define LIB_SYSTEM_SYSTEM_H_
 
 #define SwapConstInt16(x) ((((x) & 0xff00) >> 8) | (((x) & 0x00ff) << 8))
+
+#define CYCLES_PER_US 8L // depends on the CPU speed
+#define CYCLES_PER_MS (CYCLES_PER_US * 1000L)
+
+#define SystemDelayUS(x) __delay_cycles((x * CYCLES_PER_US))
 
 inline void SwapEndian(void *val)
 {
@@ -77,4 +82,4 @@ inline uint32_t betoh32(uint32_t val)
 	return swapbytes32(val);
 }
 
-#endif /* ENDIAN_H_ */
+#endif /* LIB_SYSTEM_SYSTEM_H_ */
