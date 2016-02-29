@@ -37,6 +37,8 @@ uint16_t HDC1000_init()
 
 	SwapEndian(&Config);
 
+	SystemTimerDelay(SystemTimeDiff(10)); //Wait until system runing 10ms for startup
+
 	i2c_write_smbus_word(HDC1000_I2C_ADDR, HDC1000_CONFIG_REG, *ptr_tmp);
 	//i2c_write_smbus(HDC1000_I2C_ADDR + 1, &smbus);
 	//i2c_write_smbus(HDC1000_I2C_ADDR + 2, &smbus);
