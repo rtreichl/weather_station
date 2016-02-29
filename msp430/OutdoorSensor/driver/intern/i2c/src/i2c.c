@@ -310,12 +310,13 @@ uint8_t i2c_write_arr_endian(uint8_t addr, enum I2C_CRTL_CMD rept_start, int8_t 
 
 }
 
-int16_t i2c_slave_check(uint8_t addr)
+uint16_t i2c_slave_check(uint8_t addr)
 {
 	i2c_write_arr(addr, STOP, 1, 0);
+	SystemTimerDelay(1);
 	if(i2c.status == NACK) {
 		i2c.status = IDLE;
-		return -1;
+		return 0;
 	}
 	return 1;
 }

@@ -78,7 +78,7 @@ uint8_t i2c_read_smbus_byte(uint8_t addr, uint8_t reg);
 uint16_t i2c_read_smbus_word(uint8_t addr, uint8_t reg);
 uint8_t i2c_write_smbus_byte(uint8_t addr, uint8_t reg, uint8_t byte);
 uint8_t i2c_write_smbus_word(uint8_t addr, uint8_t reg, uint16_t word);
-
+uint16_t i2c_slave_check(uint8_t addr);
 
 /**
  *  @brief Transmits I2C commands with a variable length to a I2C slave.
