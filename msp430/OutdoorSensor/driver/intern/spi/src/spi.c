@@ -53,7 +53,7 @@ int16_t SPI_init(enum SPIMode mode)
 	if(mode == SPIMODE3)						// SPI mode 3
 			UCA0CTLW0 |= UCCKPH | UCCKPL;		// Clock polarity high, Clock phase high, MSB
 	UCA0CTLW0 |= UCSSEL_2;                    	// SMCLK
-	UCA0BRW = 0x02;                           	// /2
+	UCA0BRW = 0x01;                           	// /2
 	UCA0MCTLW = 0;                            	// No modulation
 	UCA0CTLW0 &= ~UCSWRST;                    	// **Initialize USCI state machine**
 	UCA0IE |= UCRXIE;                			// Enable USCI_A0 RX interrupt
