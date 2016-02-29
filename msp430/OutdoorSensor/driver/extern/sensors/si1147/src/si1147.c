@@ -70,9 +70,12 @@ uint8_t si1147_read_param(uint8_t param)
 //  - when non-zero, sensor is in autonomous mode
 void si1147_init()
 {
+	SystemTimerDelay(SystemTimeDiff(25)); //Wait until system runing 25ms for startup
+
 	si1147_reset();
 	/***********************************/
 	// enable UVindex measurement coefficients!
+
 	si1147_write_reg(SI1147_UCOEF0_REG, 0x7B);
 	si1147_write_reg(SI1147_UCOEF1_REG, 0x6B);
 	si1147_write_reg(SI1147_UCOEF2_REG, 0x01);
