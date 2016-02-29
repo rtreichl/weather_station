@@ -21,7 +21,8 @@
 // Channel spacing = 199.951172 
 // Base frequency = 867.999939 
 // PA table 
-#define PA_TABLE {0x50,0x00,}
+#define PA_TABLE0 0xC0
+#define PA_TABLE1 0x00
 
 // Rf settings for CC110L
 const uint8_t CC110L_Settings[0x2F] = {
