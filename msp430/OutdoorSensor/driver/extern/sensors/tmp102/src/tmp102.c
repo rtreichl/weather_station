@@ -29,7 +29,7 @@ uint16_t TMP102_init()
 	Config.POL = TMP102_POLARITY_LOW;
 	Config.TM = TMP102_INTERRUPT_MODE;
 	Config.SD = TMP102_NORMAL_OPERATION;
-	Config.CR = TMP102_CONVER_RATE_1S;
+	Config.CR = TMP102_CONVER_RATE_125MS;
 	Config.AL = TMP102_ALERT_ZERO;
 	Config.EM = TMP102_EXENDED_MODE;
 
@@ -52,6 +52,8 @@ int16_t TMP102_ReadRawTemperature()
 		uint8_t byte[2];
 		int16_t word;
 	} data;
+
+	SystemTimerDelay(SystemTimeDiff(125)); //Wait until system runing 125ms for conversion
 
 	data.word = i2c_read_smbus_word(TMP102_I2C_ADDR, TMP102_TEMPERATURE_REG);
 
