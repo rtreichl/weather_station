@@ -7,6 +7,7 @@ Desktop="Desktop"
 
 [Globals]
 AutoSaveProject=1
+UsedLibrary="F:/Program Files (x86)/EAGLE-7.4.0/lbr/micro-harris.lbr"
 UsedLibrary="F:/Program Files (x86)/EAGLE-6.5.0/lbr/19inch.lbr"
 UsedLibrary="F:/Program Files (x86)/EAGLE-6.5.0/lbr/40xx.lbr"
 UsedLibrary="F:/Program Files (x86)/EAGLE-6.5.0/lbr/41xx.lbr"
@@ -364,10 +365,14 @@ UsedLibrary="libraries/RASPBERRY_PI_Bplus.lbr"
 UsedLibrary="libraries/RNH_BQ24725.lbr"
 UsedLibrary="libraries/texas.lbr"
 UsedLibrary="libraries/weather_station.lbr"
+UsedLibrary="F:/GIT/LED Controller/eagle/msp430fr.lbr"
+UsedLibrary="F:/GIT/msp430radio/eagle/Radio Projekt.lbr"
+UsedLibrary="F:/Downloads/SerialPortBluetooth.lbr"
+UsedLibrary="F:/GIT/LED Controller/eagle/LED Controller.lbr"
 
 [Win_1]
 Type="Control Panel"
-Loc="0 0 2559 1376"
+Loc="0 351 1919 1367"
 State=1
 Number=0
 

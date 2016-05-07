@@ -11924,6 +11924,12 @@ www.johansontechnology.com&lt;p&gt;
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
 <part name="C800" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="R712" library="rcl" deviceset="R-EU_" device="R0603" value="100k">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+</part>
+<part name="GND33" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -13050,13 +13056,6 @@ www.johansontechnology.com&lt;p&gt;
 <label x="119.38" y="88.9" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="TPL5111_DRV" class="0">
-<segment>
-<pinref part="IC500" gate="A" pin="P3.6/TB2.1/TB1CLK"/>
-<wire x1="226.06" y1="63.5" x2="241.3" y2="63.5" width="0.1524" layer="91"/>
-<label x="241.3" y="63.5" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
 <net name="CC110L_GDO0" class="0">
 <segment>
 <label x="119.38" y="60.96" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -13290,6 +13289,12 @@ www.johansontechnology.com&lt;p&gt;
 <attribute name="MPN" x="50.8" y="114.3" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="GND25" gate="1" x="50.8" y="96.52"/>
+<instance part="R712" gate="G$1" x="154.94" y="96.52" rot="R90">
+<attribute name="OC_FARNELL" x="154.94" y="96.52" size="1.778" layer="96" display="off"/>
+<attribute name="MF" x="154.94" y="96.52" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="154.94" y="96.52" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="GND33" gate="1" x="154.94" y="86.36"/>
 </instances>
 <busses>
 </busses>
@@ -13299,15 +13304,16 @@ www.johansontechnology.com&lt;p&gt;
 <pinref part="R700" gate="G$1" pin="2"/>
 <pinref part="GND8" gate="1" pin="GND"/>
 <wire x1="73.66" y1="106.68" x2="73.66" y2="104.14" width="0.1524" layer="91"/>
-<wire x1="73.66" y1="104.14" x2="76.2" y2="104.14" width="0.1524" layer="91"/>
 <pinref part="IC700" gate="A" pin="GND"/>
-<wire x1="76.2" y1="104.14" x2="81.28" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="104.14" x2="81.28" y2="104.14" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="104.14" x2="81.28" y2="99.06" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="104.14" x2="81.28" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="104.14" x2="83.82" y2="104.14" width="0.1524" layer="91"/>
 <junction x="81.28" y="104.14"/>
 <pinref part="S1" gate="G$1" pin="SH"/>
-<wire x1="76.2" y1="121.92" x2="76.2" y2="104.14" width="0.1524" layer="91"/>
-<junction x="76.2" y="104.14"/>
+<wire x1="83.82" y1="104.14" x2="81.28" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="121.92" x2="83.82" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="121.92" x2="83.82" y2="104.14" width="0.1524" layer="91"/>
+<junction x="83.82" y="104.14"/>
 </segment>
 <segment>
 <pinref part="R711" gate="G$1" pin="1"/>
@@ -13318,6 +13324,11 @@ www.johansontechnology.com&lt;p&gt;
 <pinref part="C700" gate="G$1" pin="2"/>
 <pinref part="GND25" gate="1" pin="GND"/>
 <wire x1="50.8" y1="99.06" x2="50.8" y2="109.22" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R712" gate="G$1" pin="1"/>
+<pinref part="GND33" gate="1" pin="GND"/>
+<wire x1="154.94" y1="88.9" x2="154.94" y2="91.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -13358,8 +13369,12 @@ www.johansontechnology.com&lt;p&gt;
 <net name="TPL5111_DONE" class="0">
 <segment>
 <pinref part="IC700" gate="A" pin="DONE"/>
-<wire x1="149.86" y1="104.14" x2="172.72" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="104.14" x2="154.94" y2="104.14" width="0.1524" layer="91"/>
 <label x="172.72" y="104.14" size="1.27" layer="95" xref="yes"/>
+<pinref part="R712" gate="G$1" pin="2"/>
+<wire x1="154.94" y1="104.14" x2="172.72" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="101.6" x2="154.94" y2="104.14" width="0.1524" layer="91"/>
+<junction x="154.94" y="104.14"/>
 </segment>
 </net>
 <net name="BQ25570_VSTOR" class="0">
