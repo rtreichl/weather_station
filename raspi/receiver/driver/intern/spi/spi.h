@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _SPI_
+#define _SPI_
 
 #include <stdint.h>
 #include <string>
@@ -21,3 +22,5 @@ private:
 	uint8_t mode;
 	uint32_t speed;
 };
+
+#endif /* _SPI_ */

@@ -140,7 +140,7 @@
 #define CC110L_STATE_RXFIFO_ERROR       6
 #define CC110L_STATE_TXFIFO_ERROR       7
 
-#define CC110L_BUFFER_SIZE 255
+#define CC110L_BUFFER_SIZE 256
 
 /******************************************************************************
  * TYPEDEFS
@@ -354,7 +354,7 @@ typedef struct
 
 typedef struct
 {
-	uint8_t NUM_TXBYTES : 7;
+	uint8_t NUM_RXBYTES : 7;
 	uint8_t RXFIFO_OVERFLOW : 1;
 }CC110L_RXBYTES_STC;
 
@@ -459,18 +459,25 @@ public:
 	~CC110L();
 	int SendData(char *Data);
 	char GetData();
+	bool GetData(void *data);
 	int CheckConfig();
 	int WriteConfig(CC110L_CONFIG *Config);
 	int ReadStatus();
 	int SendCommand(char command);
 	void PrintStatusByte();
+	void PrintGpioState();
 	void PrintStatusRegisters();
+	void PrintRxAvailableBytes(CC110L_RXBYTES_STC RXBytes);
+	void PrintRxAvailableBytes();
+	void PrintFifoStatus();
 	int ConfigDSR(void *(*function)(void *));
-	int16_t RssiConvertion(uint8_t rssi_dec);
+	static int16_t RssiConvertion(uint8_t rssi_dec);
+	int AvailableBytes = 0;
 	pthread_mutex_t mutex;
 	pthread_cond_t condition;
 	pthread_t DSR = 0;
 private:
+	static void ClearFifo(int gpio, int level, uint32_t tick, void  *userdata);
 	static void RX(int gpio, int level, uint32_t tick, void  *userdata);
 	int SpiWrite(uint8_t reg, void *TXBuffer, uint16_t n_bytes);
 	int SpiRead(uint8_t reg, void *RXBuffer, uint16_t n_bytes);
@@ -478,6 +485,7 @@ private:
 	int RxAvailableNum();
 	int WritePATable(uint16_t PATable);
 	int ReadPATable();
+	float ConvertRssi(int8_t rssi);
 
 	CC110L_CONFIG ConfigReg;
 	CC110L_STATUS StatusReg;
@@ -486,12 +494,12 @@ private:
 	bool RxBufferOverThres = 0;
 	unsigned char RXBufferRead = 0;
 	unsigned char RXBufferWrite = 0;
+	unsigned char RXPacketPointer = 0;
 	char RXBuffer[CC110L_BUFFER_SIZE];
+	unsigned char RXPacketSize[CC110L_BUFFER_SIZE / 16] = {0};
 	unsigned char TXBufferRead = 0;
 	unsigned char TXBufferWrite = 0;
 	char TXBuffer[CC110L_BUFFER_SIZE];
-	float ConvertRssi(int8_t rssi);
-	int AvailableBytes = 0;
 };
 
 #endif// CC11xL_SPI_H

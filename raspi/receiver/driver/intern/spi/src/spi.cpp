@@ -1,10 +1,11 @@
-#include <driver.h>
+#include "../../../driver.h"
 
 #include <sys/ioctl.h>
 #include <fcntl.h>
 #include <iostream>
 #include <linux/spi/spidev.h>
 #include <unistd.h>
+#include <string>
 
 using namespace std;
 

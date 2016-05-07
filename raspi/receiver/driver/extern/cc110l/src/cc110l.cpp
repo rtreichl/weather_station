@@ -1,4 +1,4 @@
-#include <driver.h>
+#include "../../../driver.h"
 #include <iostream>
 #include <iomanip>
 #include <cstring>
@@ -29,7 +29,7 @@ CC110L::CC110L(CC110L_CONFIG *Config)
 {
 	gpioSetMode(CC110L_SPI_CS, PI_OUTPUT);
 	gpioSetMode(CC110L_GPO2, PI_INPUT);
-	gpioSetISRFuncEx(CC110L_GPO2, RISING_EDGE, 1000, this->RX, (void *)(this));
+	gpioSetMode(CC110L_GPO0, PI_INPUT);
 	if ((this->Device = spiOpen(CC110L_SPI_BUS, CC110L_SPI_BAUD, PI_SPI_FLAGS_RESVD(1))) < 0)
 	{
 		cout << "Error can't initialize SPI!";
@@ -38,6 +38,8 @@ CC110L::CC110L(CC110L_CONFIG *Config)
 	delay(50000000);
 	WriteConfig(Config);
 	delay(100000000);
+	gpioSetISRFuncEx(CC110L_GPO0, RISING_EDGE, 30000, this->ClearFifo, (void *)(this));
+	gpioSetISRFuncEx(CC110L_GPO2, RISING_EDGE, 30000, this->RX, (void *)(this));
 }
 
 CC110L::~CC110L()
@@ -187,12 +189,12 @@ int CC110L::ConfigDSR(void *(*func)(void *))
 	pthread_mutex_init(&this->mutex, NULL);
 	pthread_cond_init (&this->condition, NULL);
 	pthread_create(&this->DSR, NULL, func, (void *)(this));
+	//pthread_join(this->DSR, NULL);
 	return 0;
 }
 
 void CC110L::PrintStatusRegisters()
 {
-#if CC110L_DEBUG >= CC110L_DEBUG_LEVEL_1
 	cout << "############ Status registers ############" << endl;
 	cout << "Partnumber: 0x" << hex << (int)this->StatusReg.PARTNUM << endl;
 	cout << "Verstion: 0x" << hex << (int)this->StatusReg.VERSION << endl;
@@ -310,7 +312,7 @@ void CC110L::PrintStatusRegisters()
 	else {
 		cout << "GDO2 is low" << endl;
 	}
-	cout << "RX buffer bytes: " << (int)this->StatusReg.RXBYTES.NUM_TXBYTES << endl;
+	cout << "RX buffer bytes: " << (int)this->StatusReg.RXBYTES.NUM_RXBYTES << endl;
 	if(this->StatusReg.RXBYTES.RXFIFO_OVERFLOW == 1) {
 		cout << "RX fifo overflow" << endl;
 	}
@@ -319,12 +321,23 @@ void CC110L::PrintStatusRegisters()
 		cout << "TX fifo underflow" << endl;
 	}
 	cout << "##########################################" << endl << endl;
-#endif
+}
+
+void CC110L::PrintGpioState()
+{
+	cout << endl;
+	cout << "################# GPIO #################" << endl;
+	cout << "GPO0: " << static_cast<int>(CC110L_GPO0) << endl;
+	cout << "GPO0 Level: " << static_cast<int>(gpioRead(CC110L_GPO0)) << endl;
+	cout << "GPO0 Function:" << std::hex << static_cast<int>(this->ConfigReg.IOCFG0.GDO0_CFG) << endl;
+	cout << "GPO2: " << static_cast<int>(CC110L_GPO2) << endl;
+	cout << "GPO2 Level: " << static_cast<int>(gpioRead(CC110L_GPO2)) << endl;
+	cout << "GPO2 Function:" << std::hex << static_cast<int>(this->ConfigReg.IOCFG2.GDO2_CFG) << endl;
+	cout << "########################################" << endl;
 }
 
 void CC110L::PrintStatusByte()
 {
-#if CC110L_DEBUG >= CC110L_DEBUG_LEVEL_1
 	cout << "################# Status #################" << endl;
 	if(this->Status.CHIP_RDYn == 0) {
 		cout << "Device ready" << endl;
@@ -362,7 +375,28 @@ void CC110L::PrintStatusByte()
 	cout << endl;
 	cout << "Bytes available: " << static_cast<int>(this->Status.FIFO_BYTES_AVILABLE) << endl;
 	cout << "##########################################" << endl << endl;
+}
+
+void CC110L::ClearFifo(int gpio, int level, uint32_t tick, void  *userdata)
+{
+	CC110L *cc110l = (CC110L *)userdata;
+	/* if timeout check for gpio level if still high return*/
+	if(level == PI_TIMEOUT && gpioRead(gpio) == 0) {
+		return;
+	}
+	cc110l->ReadStatus();
+	cc110l->PrintStatusRegisters();
+#if CC110L_DEBUG >= CC110L_DEBUG_LEVEL_1
+	cout << endl;
+	cout << "############## Interrupt ###############" << endl;
+	cout << "Clear Fifo" << endl;
+	cout << "Level: " << static_cast<int>(level) << endl;
+	cout << "GPIO Level: " << static_cast<int>(gpioRead(gpio)) << endl;
+	cout << "########################################" << endl;
 #endif
+	cc110l->SendCommand(CC110L_COMMAND_SFRX);
+	cc110l->SendCommand(CC110L_COMMAND_SRX);
+	return;
 }
 
 void CC110L::RX(int gpio, int level, uint32_t tick, void  *userdata)
@@ -381,6 +415,11 @@ void CC110L::RX(int gpio, int level, uint32_t tick, void  *userdata)
 		return;
 	}
 
+	cc110l->RXPacketSize[cc110l->RXPacketPointer] = Num;
+
+	if(++cc110l->RXPacketPointer == sizeof(cc110l->RXPacketSize)){
+		cc110l->RXPacketPointer = 0;
+	}
 #if CC110L_DEBUG >= CC110L_DEBUG_LEVEL_1
 	cout << "############## Interrupt ###############" << endl;
 	cout << "Level: " << static_cast<int>(level) << endl;
@@ -422,15 +461,37 @@ int CC110L::RxAvailableNum()
 {
 	CC110L_RXBYTES_STC RXBytes;
 	SpiRead(CC110L_RXBYTES + CC110L_SPI_BURST, &RXBytes, 1);
+	gpioWrite(CC110L_SPI_CS, PI_HIGH);
 #if CC110L_DEBUG >= CC110L_DEBUG_LEVEL_2
+	PrintRxAvailableBytes(RXBytes);
+#endif
+	AvailableBytes = RXBytes.NUM_RXBYTES;
+	return RXBytes.NUM_RXBYTES;
+
+}
+
+void CC110L::PrintRxAvailableBytes(CC110L_RXBYTES_STC RXBytes)
+{
 	cout << "##########################################" << endl;
-	cout << "Available bytes RxFifo: "  << static_cast<int>(RXBytes.NUM_TXBYTES) << endl;
+	cout << "Available bytes RxFifo: "  << static_cast<int>(RXBytes.NUM_RXBYTES) << endl;
 	if(RXBytes.RXFIFO_OVERFLOW == 1)
 		cout << "RX fifo buffer overflow" << endl;
 	cout << "##########################################" << endl << endl;
-#endif
-	gpioWrite(CC110L_SPI_CS, PI_HIGH);
-	return RXBytes.NUM_TXBYTES;
+}
+
+void CC110L::PrintRxAvailableBytes()
+{
+	cout << "##########################################" << endl;
+	cout << "Available bytes RxFifo: "  << static_cast<int>(AvailableBytes) << endl;
+	cout << "##########################################" << endl << endl;
+}
+
+void CC110L::PrintFifoStatus()
+{
+	cout << "##########################################" << endl;
+	cout << "Read Pointer: " << static_cast<int>(RXBufferRead) << endl;
+	cout << "Write Pointer: " << static_cast<int>(RXBufferWrite) << endl;
+	cout << "##########################################" << endl;
 }
 	
 int CC110L::TX()
@@ -490,6 +551,24 @@ char CC110L::GetData()
 		RXBufferRead = 0;
 	}
 	return ret;
+}
+
+bool CC110L::GetData(void *data)
+{
+	unsigned char i = RXPacketSize[RXPacketPointer - 1];
+	if(i == 0) {
+		return false;
+	}
+	while(i-- || RXBufferWrite != RXBufferRead)
+	{
+		*(unsigned char *)data = this->RXBuffer[RXBufferRead];
+		RXBufferRead++;
+		if (RXBufferRead >= CC110L_BUFFER_SIZE)
+		{
+			RXBufferRead = 0;
+		}
+	}
+	return true;
 }
 
 int16_t CC110L::RssiConvertion(uint8_t rssi_dec)

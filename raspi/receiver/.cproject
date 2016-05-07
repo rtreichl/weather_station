@@ -20,7 +20,7 @@
 							<option id="cdt.managedbuild.option.gnu.cross.prefix.687703950" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" value="arm-linux-gnueabihf-" valueType="string"/>
 							<option id="cdt.managedbuild.option.gnu.cross.path.698253762" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" value="F:\SysGCC\raspberry\bin" valueType="string"/>
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.219005214" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
-							<builder buildPath="${workspace_loc:/WeatherStation}/Debug" id="cdt.managedbuild.builder.gnu.cross.1521695021" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross">
+							<builder autoBuildTarget="all" buildPath="${workspace_loc:/WeatherStation}/Debug" cleanBuildTarget="clean" enableAutoBuild="false" enableCleanBuild="true" enabledIncrementalBuild="true" id="cdt.managedbuild.builder.gnu.cross.1521695021" incrementalBuildTarget="all" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="cdt.managedbuild.builder.gnu.cross">
 								<outputEntries>
 									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Debug"/>
 									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Release"/>
@@ -31,7 +31,6 @@
 								<option id="gnu.c.compiler.option.debugging.level.419568929" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.167800911" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="F:/SysGCC/raspberry/arm-linux-gnueabihf/sysroot/usr/include"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/driver}&quot;"/>
 									<listOptionValue builtIn="false" value="F:/SysGCC/raspberry/arm-linux-gnueabihf/sysroot/usr/local/include"/>
 								</option>
 								<option id="gnu.c.compiler.option.dialect.std.1194091466" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.c11" valueType="enumerated"/>
@@ -42,7 +41,6 @@
 								<option id="gnu.cpp.compiler.option.debugging.level.350855598" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.138582369" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="F:/SysGCC/raspberry/arm-linux-gnueabihf/sysroot/usr/include"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/driver}&quot;"/>
 									<listOptionValue builtIn="false" value="F:/SysGCC/raspberry/arm-linux-gnueabihf/sysroot/usr/local/include"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.dialect.std.202846755" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.c++11" valueType="enumerated"/>
@@ -75,7 +73,9 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="cmd"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="driver"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="lib"/>
 						<entry excluding="mysql.cpp|gpio.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
@@ -126,7 +126,9 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="cmd"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="driver"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="lib"/>
 						<entry excluding="gpio.cpp|mysql.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>

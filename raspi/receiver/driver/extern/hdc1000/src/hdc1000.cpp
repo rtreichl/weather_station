@@ -1,4 +1,4 @@
-#include <driver.h>
+#include "../../../driver.h"
 #include <iostream>
 //#include <wiringPiI2C.h>
 //#include <wiringPi.h>
@@ -49,10 +49,10 @@ HDC1000::HDC1000(uint8_t i2c_device, uint8_t address, const HDC1000_Config &Conf
 	{
 		this->Config.RST = HDC1000_NORMAL_OPERATION;	
 		this->Config.HEAT = HDC1000_HEATER_OFF;
-		this->Config.MODE = HDC1000_MODE_BOTH;
+		this->Config.MODE = HDC1000_MODE_SEPARATED;
 		this->Config.TRES = HDC1000_TEMP_RES_14_BIT;
 		this->Config.HRES = HDC1000_HUMI_RES_14_BIT;
-		SetConfig(this->Config);
+		this->SetConfig(this->Config);
 	}
 	else
 	{

@@ -1,3 +1,6 @@
+#include "../driver/driver.h"
+#include "../driver/extern/cc110l/include/cc110l_config2.h"
+
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -5,23 +8,19 @@
 #include <iostream>
 #include <endian.h>
 #include <pthread.h>
-#include <mysql/mysql.h>
 #include <time.h>
-//#include <sys/>
-#include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
 #include <sys/ioctl.h>
 #include <fcntl.h>
-#include <string.h>
 //#include <linux/i2c.h>
 #include <linux/i2c-dev.h>
 #include <iostream>
 
-#include "../driver/extern/cc110l/include/cc110l_config2.h"
-#include "../driver/driver.h"
 #include "database.h"
 #include "protocol.h"
+
+#include "../cmd/CommandParser.h"
+#include "../cmd/concrete/inc.h"
 
 #define HDC1000_ADR  0x40
 #define TMP102_ADR  0x48
@@ -34,6 +33,7 @@ using std::dec;
 
 //int getDatafromCC110L(CC110L &cc110l);
 void *getDatafromCC110L(void  *userdata);
+void *getPiSensorData(void *arg);
 
 //void *Sensor(void *threadid)
 //{
@@ -100,58 +100,70 @@ void *getDatafromCC110L(void  *userdata);
 //	return 0;
 //}
 
-PROTOCOL_PORT_1_DATA_STC data;
-
-//int main(int argc, char *argv[])
-//{
-//	data.hdc1000_humi = 3325;
-//	data.hdc1000_temp = 2526;
-//	data.tmp102_temp = 2645;
-//	data.lps25h_temp = 2285;
-//	data.lps25h_press = 95336;
-//	data.si1147_ir = 200;
-//	data.si1147_uv = 550;
-//	data.si1147_vis = 300;
-//	data.vbat = 330;
-//	data.vsolar = 120;
-//
-//	Database db;
-//	char address = 5;
-//	char protocol = 1;
-//	db.StoreData(1, 1, 1, &data);
-//	//db.CreateSensor(1,1);
-//	//db.CreateSensor(2,1);
-//	//db.CreateSensor(3,1);
-//	//db.CreateSensor(4,1);
-//	return 0;
-//}
-
 #include <pthread.h>
 #include <sys/poll.h>
 
+//int main(int argc, char **argv) {
+//	// example usage:
+//
+//	gpioInitialise();
+//	HDC1000 hdc1000(I2C_DEVICE_1, HDC1000_ADR);
+////	CC110L cc110l(CC110L_Config2);
+////	cc110l.ConfigDSR(getDatafromCC110L);
+////	cc110l.SendCommand(CC110L_COMMAND_SRX);
+//
+//	CommandParser cmdParser;
+//	std::string line;
+//
+//	// register cmds
+//	//cmdParser.registerCmd(new CommandPrintParam());
+//	//cmdParser.registerCmd(new CommandSize());
+//	cmdParser.registerCmd(new CommandPrint(&hdc1000));
+//
+//	// read command line
+//	// till exit
+//
+//	std::cout << "cmd << ";
+//	while (std::getline(std::cin, line)) {
+//		if (line != "exit" && line.size() != 0) {
+//			cmdParser.setCommandLine(line);
+//			cmdParser.executeCmd();
+//			std::cout << "cmd << ";
+//		}
+//		else if(line == "exit")
+//			break;
+//	}
+//	gpioTerminate();
+//	return 0;
+//}
 
 int main(int argc, char* argv[])
 {
-	uint i = 1,t = 1;
+	pthread_t rapi_thread;
 	gpioInitialise();
-	CC110L cc110l;
-	cc110l.SendCommand(CC110L_COMMAND_SRES);
-	delay(50000000);//cc110l.ReadConfig();
-	cc110l.WriteConfig(CC110L_Config2);
+
+	CommandParser cmdParser;
+	std::string line;
+
+	CC110L cc110l(CC110L_Config2);
+	cmdParser.registerCmd(new CommandCC110LPrint(&cc110l));
 	cc110l.ConfigDSR(getDatafromCC110L);
 	cc110l.SendCommand(CC110L_COMMAND_SRX);
 	cc110l.ReadStatus();
 	cc110l.PrintStatusRegisters();
 	cc110l.PrintStatusByte();
-	//cc110l.ReadConfig();
-	while(i)
-	{
-		if(t == 0) {
-			cc110l.ReadStatus();
-			cc110l.PrintStatusRegisters();
-			cc110l.PrintStatusByte();
-			t = 1;
+	system("printf '\e[8;50;100t'");
+	pthread_create(&rapi_thread, NULL, getPiSensorData, NULL);
+	//pthread_join(rapi_thread, NULL);
+	std::cout << "cmd << ";
+	while (std::getline(std::cin, line)) {
+		if (line != "exit" && line.size() != 0) {
+			cmdParser.setCommandLine(line);
+			cmdParser.executeCmd();
+			std::cout << "cmd << ";
 		}
+		else if(line == "exit")
+			break;
 	}
 //	HDC1000 hdc1000(I2C_DEVICE_1, HDC1000_ADR);
 //	TMP102 tmp102(I2C_DEVICE_1, TMP102_ADR);
@@ -160,7 +172,7 @@ int main(int argc, char* argv[])
 //	cout << tmp102.ReadTemperature() << endl;
 //	hdc1000.~HDC1000();
 //	tmp102.~TMP102();
-	//cc110l.~CC110L();
+	cc110l.~CC110L();
 	gpioTerminate();
 	return 0;
 }
@@ -168,47 +180,52 @@ int main(int argc, char* argv[])
 void *getDatafromCC110L(void  *userdata)
 {
 	CC110L *cc110l = (CC110L *)userdata;
-	//cc110l->RX();
+	Database db;
 	while(1) {
-		time_t rawtime;
-		//cc110l->SendCommand(CC110L_COMMAND_SRX);
+		PROTOCOL_DATA_STC package;
+		DATABASE_DATA_STC data;
+		uint8_t * ptr_package = (uint8_t *)&package;
 		char i;
-		PROTOCOL_STC package;
-		char *ptr = (char *)&package;
 		pthread_cond_wait(&cc110l->condition, &cc110l->mutex);
-		for(i = 0; i < 33; i++)
+//		if(!cc110l->GetData(&package))
+//		{
+//			cout << "No Data Ava." << endl;
+//		}
+		for(i = 0; i < cc110l->AvailableBytes; i++)
 		{
-			*ptr++ = cc110l->GetData();
+			*ptr_package++ = cc110l->GetData();
 		}
+		protocol_decoder(&package, &data);
+		db.StoreData(&data);
+		protocol_print_data(&data);
 		cc110l->PrintStatusByte();
-		//pthread_mutex_unlock(&cc110l->mutex);
-		time(&rawtime);
-		cout << ctime(&rawtime);
-		cout << "Package Len: " << dec << static_cast<int>(package.header.length) << endl;
-		cout << "Dest Addr: 0x" << hex << (int)package.header.dest_addr << endl;
-		cout << "Src Addr: 0x" << hex << (int)package.header.src_addr << endl;
-		cout << "Port: 0x" << hex << (int)package.header.protocol << endl;
-		cout << "Status: 0x" << hex << (int)package.header.status << endl;
-		cout << "Solar Voltage:" << package.static_data.solar_voltage * 1.5 / 1024 << "V" << endl;
-		cout << "Battery Voltage:" << package.static_data.max17048_vcell * 78.125 / 1000000 << "V" << endl;
-		cout << "Battery Charge:" << package.static_data.max17048_charge / 256.0 << "%" << endl;
-		cout << "Battery Charging Rate:" << package.static_data.max17048_crate * 0.208 << "%/hr" << endl;
-		cout << "HDC1000 Temp: " << package.static_data.hdc1000_temp / 65535.0 * 165 - 40 << "\u2103" << endl;
-		cout << "HDC1000 Humi: " << package.static_data.hdc1000_humi / 65535.0 * 100 << "%" << endl;
-		cout << "TMP102 Temp: " << package.static_data.tmp102_temp * 0.0625 * 2 << "\u2103" << endl;
-		switch(package.header.protocol) {
-		case PROTOCOL_1:
-			PROTOCOL_PORT_1_DATA_STC *ptr_data = (PROTOCOL_PORT_1_DATA_STC*)package.dyn_data;
-			cout << "LPS25H Temp: " << ptr_data->lps25h_temp / 480.0 + 42.5 << "\u2103" << endl;
-			cout << "LPS25H Press: " << ptr_data->lps25h_press / 4096.0 << "hPa" << endl;
-			cout << "SI1147 IR: " << static_cast<int>(ptr_data->si1147_ir) << "lux" << endl;
-			cout << "SI1147 VIS: " << static_cast<int>(ptr_data->si1147_vis) << "lux" << endl;
-			cout << "SI1147 UV: " << ptr_data->si1147_uv / 100.0 << endl;
-			cout << "Rssi: " << dec  << static_cast<int>(cc110l->RssiConvertion(ptr_data->append.rssi)) << "dBm" << endl;
-			if (ptr_data->append.crc & 0x80)
-				cout << "CRC: Ok!" << endl;
-			else
-				cout << "CRC: Failed!" << endl;
-		}
 	}
 }
+
+#define RAPI_ADDR 8
+
+void *getPiSensorData(void *arg)
+{
+	gpioInitialise();
+	sleep(20);
+	HDC1000 hdc1000(I2C_DEVICE_1, HDC1000_ADR);
+	TMP102 tmp102(I2C_DEVICE_1, TMP102_ADR);
+	DATABASE_DATA_STC data = {0};
+	Database db;
+	data.header.addr  = RAPI_ADDR;
+	data.hardware.hdc1000 = 1;
+	data.hardware.tmp102 = 1;
+	while(1) {
+		data.hdc1000.humi = hdc1000.ReadHumidity();
+		data.hdc1000.temp = hdc1000.ReadTemperature();
+		data.tmp102.temp = tmp102.ReadTemperature();
+		data.tmp102.temp = roundf(data.tmp102.temp * 100) / 100;
+		data.hdc1000.temp = roundf(data.hdc1000.temp * 100) / 100;
+		data.hdc1000.humi = roundf(data.hdc1000.humi * 100) / 100;
+		db.StoreData(&data);
+		protocol_print_data(&data);
+		sleep(120);
+	}
+	gpioTerminate();
+}
+

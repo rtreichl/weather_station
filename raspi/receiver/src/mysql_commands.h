@@ -21,17 +21,24 @@ const std::string mysql_select_sensorsactavg = "SELECT * FROM `SensorsActAvg` WH
 
 const std::string mysql_colum_as_index = "ALTER TABLE `%s` ADD INDEX(`%s`);";
 
-const std::string mysql_table_sensors_active =  "CREATE TABLE IF NOT EXISTS `SensorsActive` ( \
-  `ID` TINYINT KEY AUTO_INCREMENT, \
-  `NAME` varchar(20) COLLATE latin1_german1_ci NOT NULL COMMENT 'Name of Sensor', \
-  `ADDRESS` TINYINT NOT NULL COMMENT 'Address from sensor', \
-  `UPDATETED` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Last received data', \
-  `STATUS` SMALLINT NOT NULL COMMENT 'Indicates last status', \
-  `PROTOCOL` TINYINT NOT NULL COMMENT 'Used protocol by Sensor', \
-  `MESSUREMENTS` BIGINT NOT NULL COMMENT 'Total number of received measurements', \
-  `HISTORY` int(11) NOT NULL COMMENT 'Reference to history table', \
-  `TOTAL` int(11) NOT NULL COMMENT 'Reference to total table' \
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;";
+const std::string mysql_table_sensors_active =  "CREATE TABLE IF NOT EXISTS `SensorsActive` (\
+`ID` tinyint(4) NOT NULL,\
+  `NAME` varchar(20) COLLATE latin1_german1_ci NOT NULL COMMENT 'Name of Sensor',\
+  `ADDRESS` tinyint(4) NOT NULL COMMENT 'Address from sensor',\
+  `UPDATETED` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Last received data',\
+  `STATUS` smallint(6) NOT NULL COMMENT 'Indicates last status',\
+  `PROTOCOL` tinyint(4) NOT NULL COMMENT 'Used protocol by Sensor',\
+  `SOLAR` tinyint(1) DEFAULT '0',\
+  `MAX17048` tinyint(1) DEFAULT '0',\
+  `HDC1000` tinyint(1) DEFAULT '0',\
+  `TMP102` tinyint(1) DEFAULT '0',\
+  `LPS25H` tinyint(1) DEFAULT '0',\
+  `DS18B20` tinyint(1) DEFAULT '0',\
+  `SI1147` tinyint(1) DEFAULT '0',\
+  `MESSUREMENTS` bigint(20) NOT NULL COMMENT 'Total number of received measurements',\
+  `HISTORY` int(11) NOT NULL COMMENT 'Reference to history table',\
+  `TOTAL` int(11) NOT NULL COMMENT 'Reference to total table'\
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;";
 
 const std::string mysql_table_max_values  = "CREATE TABLE IF NOT EXISTS `SensorsMax` ( \
   `ID` INT KEY AUTO_INCREMENT, \
@@ -200,9 +207,9 @@ const std::string mysql_update_sensorsavg = "UPDATE `SensorsAvg` SET \
 WHERE `ADDRESS` = '%d' AND `DATE` = DATE(NOW()) LIMIT 1;";
 
 const std::string mysql_insert_sensors_active = "INSERT INTO `SensorsActive` \
-		( `ID`, `NAME`, `ADDRESS`, `UPDATETED`, `STATUS`, `PROTOCOL`, `MESSUREMENTS`, `HISTORY`, `TOTAL`)\
+		( `ID`, `NAME`, `ADDRESS`, `UPDATETED`, `STATUS`, `PROTOCOL`, `SOLAR`, `MAX17048`, `HDC1000`, `TMP102`, `LPS25H`, `DS18B20`, `SI1147`, `MESSUREMENTS`, `HISTORY`, `TOTAL`)\
 		VALUES \
-		('', '%s', '%d', CURRENT_TIMESTAMP, '0', '%d', '0', '0', '0');";
+		('', '%s', '%d', CURRENT_TIMESTAMP, '0', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '0', '0', '0');";
 
 const std::string mysql_insert_protocol_data = "INSERT INTO `%s` \
 		(`ID`, `DATE`, `TIME`, `HDC1000_TEMP`, `HDC1000_HUMI`, `TMP102_TEMP`, `VOLT_BAT`, `CHARGE_BAT`, `RATE_BAT`, `VOLT_SOLAR`, `LPS25H_TEMP`, `LPS25H_PRESS`, `SI1147_UV`, `SI1147_VIS`, `SI1147_IR`, `RSSI`, `DATETIME`) \

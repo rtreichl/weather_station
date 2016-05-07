@@ -25,12 +25,12 @@
 uint8_t CC110L_Settings2[0x2F] = {
 	0x07,   // IOCFG2             GDO2 Output Pin Configuration
 	0x2E,   // IOCFG1             GDO1 Output Pin Configuration
-	0x06,   // IOCFG0             GDO0 Output Pin Configuration
+	0x04,   // IOCFG0             GDO0 Output Pin Configuration
 	0x47,   // FIFOTHR            RX FIFO and TX FIFO Thresholds //Default was 0x47
 	0xD3,   // SYNC1              Sync Word, High Byte
 	0x91,   // SYNC0              Sync Word, Low Byte
 	0xFF,   // PKTLEN             Packet Length
-	0x0D,   // PKTCTRL1           Packet Automation Control 0x04 old 0x0D new
+	0x0C,   // PKTCTRL1           Packet Automation Control 0x04 old 0x0C new
 	0x05,   // PKTCTRL0           Packet Automation Control
 	0x01,   // ADDR               Device Address
 	0x00,   // CHANNR             Channel number

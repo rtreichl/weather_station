@@ -1,6 +1,9 @@
+#include "../../driver.h"
 #include <stdint.h>
-#include <driver.h>
 #include <pigpio.h>
+
+#ifndef _HDC1000_
+#define _HDC1000_
 
 #define HDC1000_TEMPERATURE_REG		0x00
 #define HDC1000_HUMIDITY_REG		0x01
@@ -24,7 +27,7 @@
 #define HDC1000_HUMI_RES_11_BIT		1
 #define HDC1000_HUMI_RES_8_BIT		2
 
-#define HDC1000_INTERRUPT_PIN		GPIO::GPIO4
+#define HDC1000_INTERRUPT_PIN		4
 
 //void HDC1000_Interrupt(int gpio, int level, uint32_t tick, void  *userdata);
 //void ISR(int pin, int level, uint32_t tick);
@@ -48,12 +51,13 @@ public:
 	int GetIdentity();
 	int GetConfig(HDC1000_Config *Config);
 	int SetConfig(const HDC1000_Config &Config);
+
 	bool GetHeater();
 	int SetHeater(bool status);
 	float ReadTemperature();
-	float ReadTemperature(int16_t RawData);
+	static float ReadTemperature(int16_t RawData);
 	float ReadHumidity();
-	float ReadHumidity(uint16_t RawData);
+	static float ReadHumidity(uint16_t RawData);
 private:
 	int Interrupt;
 	uint64_t SerialID;
@@ -64,3 +68,5 @@ private:
 	int16_t ReadRawTemperature();
 	static void HDC1000_Interrupt(int gpio, int level, uint32_t tick, void  *userdata);
 };
+
+#endif
