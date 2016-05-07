@@ -78,8 +78,9 @@
 uint16_t GpioAttachISR(GPIO8_PORT port, GPIO_PIN pin, gpio_ptrfunc isr)
 {
 	uint8_t tmp_pin = 0;
+	uint8_t pin_cpy = pin;
 
-	while(pin >>= 1) {
+	while(pin_cpy >>= 1) {
 		tmp_pin++;
 	}
 
@@ -171,8 +172,9 @@ uint16_t GpioAttachISR(GPIO8_PORT port, GPIO_PIN pin, gpio_ptrfunc isr)
 uint16_t GpioDetachISR(GPIO8_PORT port, GPIO_PIN pin)
 {
 	uint8_t tmp_pin = 0;
+	uint8_t pin_cpy = pin;
 
-	while(pin >>= 1) {
+	while(pin_cpy >>= 1) {
 		tmp_pin++;
 	}
 

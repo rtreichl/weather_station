@@ -6,6 +6,7 @@
  */
 
 #include <driver.h>
+#include "../../../../lib/timer/timer.h"
 
 uint8_t onewire_pin = 0;
 uint16_t onewire_port = 0;
@@ -81,21 +82,21 @@ uint8_t onewire_read_byte()
 }
 
 
-inline void onewire_line_low()
+void onewire_line_low()
 {
   GPIO8_DIR(onewire_port) |= onewire_pin;
   GPIO8_OUT(onewire_port) &= ~onewire_pin;
   GPIO8_REN(onewire_port) &= ~onewire_pin;
 }
 
-inline void onewire_line_high()
+void onewire_line_high()
 {
   GPIO8_DIR(onewire_port) |= onewire_pin;
   GPIO8_OUT(onewire_port) |= onewire_pin;
   GPIO8_REN(onewire_port) &= ~onewire_pin;
 }
 
-inline void onewire_line_release()
+void onewire_line_release()
 {
   GPIO8_DIR(onewire_port) &= ~onewire_pin;
   GPIO8_REN(onewire_port) |= onewire_pin;

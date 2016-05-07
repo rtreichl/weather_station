@@ -11,9 +11,9 @@
 
 struct I2C_CTRL {
 	int8_t endian;			///< Stores -1 for a little endian system on slave side and a 1 for a big endian system
-	uint8_t : 5;
+	uint8_t : 4;
 	uint8_t rept_start : 1;		///< Stores the value, if an repated start or stop will be send after performance on I2C.
-	uint8_t status : 2;			///< Stores the actual state of I2C module.
+	uint8_t status : 3;			///< Stores the actual state of I2C module.
 	uint8_t *PTxData;			///< Poiniter to be transmitting bytes.
 	uint8_t TxByteCtr;			///< Number of to be transmitting bytes.
 	uint8_t TxByteRes;			///< Number of reserved bytes on stash.
@@ -112,7 +112,7 @@ uint8_t i2c_write_var (uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_arg
 uint8_t i2c_write_smbus_block(uint8_t addr, const I2C_SMBUS_PACKAGE *smbus)
 {
 	uint8_t i = 0;
-	uint8_t *tmp_ptr = smbus->data;
+	uint8_t *tmp_ptr = (uint8_t*)smbus->data;
 	PTxData[0] = smbus->reg;
 	for(i = 1; i < smbus->n_bytes + 1; i++)
 			PTxData[i] = *tmp_ptr++;
@@ -164,6 +164,8 @@ uint8_t i2c_write_arr(uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_size
 	/* Set slave address */
 	//UCB0I2CSA = addr;
 
+	while (UCB0CTL1 & UCTXSTP);           // Ensure stop condition got sent
+
 	i2c.rept_start = rept_start;
 	i2c.endian = I2C_LITTLE_ENDIAN;
 
@@ -177,10 +179,10 @@ uint8_t i2c_write_arr(uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_size
 
 	/* Set Transmit Interrupt */
 	UCB0IE &= ~UCRXIE;
-	UCB0IE |= UCTXIE+UCNACKIE+UCBCNTIE;
+	UCB0IE |= UCTXIE + UCNACKIE + UCSTPIE;
 
 
-	while (UCB0CTL1 & UCTXSTP);           // Ensure stop condition got sent
+	//while (UCB0CTL1 & UCTXSTP);           // Ensure stop condition got sent
 
 	/* Send a start condition with write flag */
 	UCB0CTL1 |= UCTR + UCTXSTT;
@@ -208,6 +210,8 @@ uint8_t i2c_read (uint8_t addr, enum I2C_CRTL_CMD rept_start, int8_t endian, uin
 	i2c.rept_start = rept_start;
 	i2c.endian = I2C_LITTLE_ENDIAN;
 
+	while (UCB0CTL1 & UCTXSTP);           // Ensure stop condition got sent
+
 	UCB0TBCNT = RXBytes;		    //number of bytes to be received
 	UCB0I2CSA  = addr;		    //slave address
 
@@ -228,13 +232,11 @@ uint8_t i2c_read (uint8_t addr, enum I2C_CRTL_CMD rept_start, int8_t endian, uin
 	/* Load TX byte counter */
 	//i2c.TxByteCtr = n_size;
 
-	i2c.status = TRANSMIT;
+	i2c.status = RECEIVE;
 
 	/* Set Transmit Interrupt */
 	UCB0IE &= ~UCTXIE;
-	UCB0IE |= UCRXIE+UCNACKIE+UCBCNTIE;
-
-	while (UCB0CTL1 & UCTXSTP);           // Ensure stop condition got sent
+	UCB0IE |= UCRXIE + UCNACKIE + UCSTPIE;
 
 	/* Send a start condition with write flag */
 	UCB0CTL1 &= ~UCTR;
@@ -312,13 +314,21 @@ uint8_t i2c_write_arr_endian(uint8_t addr, enum I2C_CRTL_CMD rept_start, int8_t 
 
 uint16_t i2c_slave_check(uint8_t addr)
 {
-	i2c_write_arr(addr, STOP, 1, 0);
-	SystemTimerDelay(1);
-	if(i2c.status == NACK) {
-		i2c.status = IDLE;
-		return 0;
-	}
-	return 1;
+	uint16_t ret = 0;
+	uint16_t slave_addr = UCB0I2CSA;
+	uint16_t eusic_ie = UCB0IE;
+	UCB0IE &= ~ (UCNACKIE + UCTXIE + UCRXIE);                    // no NACK interrupt
+	UCB0I2CSA = addr;                  // set slave address
+	__disable_interrupt();
+	UCB0IFG = 0;
+	 UCB0CTL1 |= UCTR + UCTXSTT + UCTXSTP;       // I2C TX, start condition
+	while (UCB0CTL1 & UCTXSTP){};                 // wait for STOP condition
+	ret = !(UCB0IFG & UCNACKIFG);
+	UCB0IFG = 0;
+	__enable_interrupt();
+	UCB0I2CSA = slave_addr;
+	UCB0IE = eusic_ie;
+	return ret;
 }
 
 uint8_t i2c_get_status()
@@ -342,12 +352,14 @@ void __attribute__ ((interrupt(USCI_B0_VECTOR))) USCIB0_ISR (void)
       case 0x00: break; // Vector 0: No interrupts break;
       case 0x02: break; // Vector 2: ALIFG break;
       case 0x04:
-                 UCB0CTL1 |= UCTXSTP; // I2C start condition
-                 i2c.status = NACK;
-                 __bic_SR_register_on_exit(CPUOFF); // Exit LPM0
-      break; // Vector 4: NACKIFG break;
+    	  UCB0CTL1 |= UCTXSTP; // I2C start condition
+    	  i2c.status = NACK;
+    	  //__bic_SR_register_on_exit(CPUOFF); // Exit LPM0
+    	  break; // Vector 4: NACKIFG break;
       case 0x06: break; // Vector 6: STTIFG break;
-      case 0x08: break; // Vector 8: STPIFG break;
+      case 0x08:
+    	  __bic_SR_register_on_exit(CPUOFF); // Exit LPM0
+    	  break; // Vector 8: STPIFG break;
       case 0x0a: break; // Vector 10: RXIFG3 break;
       case 0x0c: break; // Vector 14: TXIFG3 break;
       case 0x0e: break; // Vector 16: RXIFG2 break;
@@ -355,15 +367,20 @@ void __attribute__ ((interrupt(USCI_B0_VECTOR))) USCIB0_ISR (void)
       case 0x12: break; // Vector 20: RXIFG1 break;
       case 0x14: break; // Vector 22: TXIFG1 break;
       case 0x16:
-                  *(i2c.PRxData) = UCB0RXBUF;    // Get RX data
-                  i2c.PRxData++;
-                  break; // Vector 24: RXIFG0 break;
-      case 0x18:  UCB0TXBUF = *(i2c.PTxData);    // Get RX data
-      	  	  	  i2c.PTxData++;
-                  break; // Vector 26: TXIFG0 break;
+    	  *(i2c.PRxData) = UCB0RXBUF;    // Get RX data
+    	  i2c.PRxData++;
+    	  break; // Vector 24: RXIFG0 break;
+      case 0x18:
+    	  UCB0TXBUF = *(i2c.PTxData);    // Get RX data
+      	  i2c.PTxData++;
+          break; // Vector 26: TXIFG0 break;
       case 0x1a:
-    	  	  	 __bic_SR_register_on_exit(CPUOFF); // Exit LPM0
-                 break; // Vector 28: BCNTIFG break;
+    	  //if(i2c.status == RECEIVE) {
+    		//  *(i2c.PRxData) = UCB0RXBUF;
+    	  //}
+    	  //UCB0CTL1 |= UCTXSTP; // I2C start condition
+    	  //__bic_SR_register_on_exit(CPUOFF); // Exit LPM0
+          break; // Vector 28: BCNTIFG break;
       case 0x1c: break; // Vector 30: clock low timeout break;
       case 0x1e: break; // Vector 32: 9th bit break;
       default: break;

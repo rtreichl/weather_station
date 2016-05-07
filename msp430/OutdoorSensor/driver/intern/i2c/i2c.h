@@ -51,7 +51,8 @@ enum I2C_CRTL_STATS {
 	IDLE = 0,		///< Indicates that I2C module is not performing a command.
 	TRANSMIT,		///< Indicates that I2C module is performing a transmittion command.
 	RECEIVE,		///< Indicates that I2C module is performing a reception command.
-	NACK			///< Indicates that I2C has occured an error.
+	NACK,			///< Indicates that I2C has occured an error.
+	NOT_FOUND,
 };
 
 #define I2C_BIG_ENDIAN -1	///< Indecates a big endian system for slave

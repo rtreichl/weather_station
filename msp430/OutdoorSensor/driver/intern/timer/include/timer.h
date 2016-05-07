@@ -63,7 +63,7 @@ typedef enum {
 #endif
 } Timer;
 
-typedef struct {
+typedef struct __attribute__((__packed__)){
 	uint16_t:1;
 	uint16_t int_en:1;
 	uint16_t:2;
@@ -73,7 +73,7 @@ typedef struct {
 	uint16_t:6;
 } TimerConfig;
 
-typedef struct {
+typedef struct __attribute__((__packed__)){
 	uint16_t ccifg:1;
 	uint16_t cov:1;
 	uint16_t out:1;

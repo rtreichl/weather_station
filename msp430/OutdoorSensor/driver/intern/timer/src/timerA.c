@@ -23,8 +23,14 @@
 
 timerptrfunc timer_a0_interrupts[4] = {0};
 
-#pragma vector = TIMER0_A0_VECTOR
+#if defined(__TI_COMPILER_VERSION__) || defined(__IAR_SYSTEMS_ICC__)
+#pragma vector=TIMER0_A0_VECTOR
 __interrupt void TIMER_A0_CCR0(void)
+#elif defined(__GNUC__)
+void __attribute__ ((interrupt(TIMER0_A0_VECTOR))) TIMER_A0_CCR0 (void)
+#else
+#error Compiler not supported!
+#endif
 {
 	uint16_t ret = 0;
 
@@ -39,8 +45,14 @@ __interrupt void TIMER_A0_CCR0(void)
 	return;
 }
 
-#pragma vector = TIMER0_A1_VECTOR
+#if defined(__TI_COMPILER_VERSION__) || defined(__IAR_SYSTEMS_ICC__)
+#pragma vector=TIMER0_A1_VECTOR
 __interrupt void TIMER_A0_TAIV(void)
+#elif defined(__GNUC__)
+void __attribute__ ((interrupt(TIMER0_A1_VECTOR))) TIMER_A0_TAIV (void)
+#else
+#error Compiler not supported!
+#endif
 {
 	uint16_t ret = 0;
 
@@ -67,7 +79,7 @@ __interrupt void TIMER_A0_TAIV(void)
 		break;                          // reserved
 	case 14: 			                // overflow
 		if (timer_a0_interrupts[TimerA0OVFLISR] != 0) {
-			ret = timer_a0_interrupts[TimerA0OVFLISR](0xFF, TimerA0, TIMER_R(TimerA0));
+			ret = timer_a0_interrupts[TimerA0OVFLISR]((TimerCCR)0xFF, TimerA0, TIMER_R(TimerA0));
 		}
 		break;
 	default:

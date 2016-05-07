@@ -80,7 +80,7 @@ uint16_t max17048_writeConfig(MAX17048_CONFIG config);
 uint16_t max17048_getChargeRate();
 uint16_t max17048_readStatus();
 uint16_t max17048_writeStatus(MAX17048_STATUS status);
-uint16_t max17048_sendCommand();
+uint16_t max17048_sendCommand(uint16_t cmd);
 uint16_t max17048_setMode(enum MAX17048_MODE mode);
 
 

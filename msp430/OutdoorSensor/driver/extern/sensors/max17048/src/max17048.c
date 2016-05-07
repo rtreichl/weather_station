@@ -17,6 +17,7 @@
 ///----------------------------------------------------------------------------------------
 
 #include <driver.h>
+#include "../../../../../lib/system/system.h"
 
 uint16_t max17048_init()
 {
@@ -47,7 +48,8 @@ uint16_t max17048_readConfig()
 
 uint16_t max17048_writeConfig(MAX17048_CONFIG config)
 {
-	return i2c_write_smbus_word(MAX17048_I2C_ADDR, MAX17048_REG_CONFIG, htobe16(*((uint16_t *)&config)));
+	uint16_t ret = i2c_write_smbus_word(MAX17048_I2C_ADDR, MAX17048_REG_CONFIG, htobe16(*((uint16_t *)&config)));
+	return ret;
 }
 
 uint16_t max17048_getChargeRate()
@@ -57,17 +59,20 @@ uint16_t max17048_getChargeRate()
 
 uint16_t max17048_readStatus()
 {
-	return betoh16(i2c_read_smbus_word(MAX17048_I2C_ADDR, MAX17048_REG_STATUS));
+	uint16_t ret = betoh16(i2c_read_smbus_word(MAX17048_I2C_ADDR, MAX17048_REG_STATUS));
+	return ret;
 }
 
 uint16_t max17048_writeStatus(MAX17048_STATUS status)
 {
-	return i2c_write_smbus_word(MAX17048_I2C_ADDR, MAX17048_REG_STATUS, htobe16(*((uint16_t *)&status)));
+	uint16_t ret = i2c_write_smbus_word(MAX17048_I2C_ADDR, MAX17048_REG_STATUS, htobe16(*((uint16_t *)&status)));
+	return ret;
 }
 
 uint16_t max17048_sendCommand(uint16_t cmd)
 {
-	return i2c_write_smbus_word(MAX17048_I2C_ADDR, MAX17048_REG_CMD, htobe16(cmd));
+	uint16_t ret = i2c_write_smbus_word(MAX17048_I2C_ADDR, MAX17048_REG_CMD, htobe16(cmd));
+	return ret;
 }
 
 uint16_t max17048_setMode(enum MAX17048_MODE mode)

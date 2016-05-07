@@ -26,12 +26,8 @@
 
 #define SI1147_STARTUP_TIME 	  2000000
 
-#define SI1147_IRQ_PREN           P1REN
-#define SI1147_IRQ_POUT           P1OUT
-#define SI1147_IRQ_BIT            BIT0
-#define SI1147_IRQ_PDIR			  P1DIR
-#define SI1147_IRQ_PIES			  P1IES
-#define SI1147_IRQ_NUM			  0
+#define SI1147_PORT				  GPIO8_PORT1
+#define SI1147_IRQ_PIN            GPIO_PIN0
 
 void si1147_init();
 

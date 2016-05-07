@@ -18,10 +18,11 @@
 
 
 #include <driver.h>
+#include "../../../../../lib/system/system.h"
 
 volatile uint8_t HDC1000_PedingInterrupt;
 
-uint16_t HDC1000_InterruptHandler(uint8_t pin);
+static uint16_t HDC1000_InterruptHandler(uint8_t pin);
 
 uint16_t HDC1000_init()
 {
@@ -30,7 +31,7 @@ uint16_t HDC1000_init()
 
 	Config.RST = HDC1000_NORMAL_OPERATION;
 	Config.HEAT = HDC1000_HEATER_OFF;
-	Config.MODE = HDC1000_MODE_BOTH;
+	Config.MODE = HDC1000_MODE_SEPARATED;
 	Config.TRES = HDC1000_TEMP_RES_14_BIT;
 	Config.HRES = HDC1000_HUMI_RES_14_BIT;
 	Config.BTST = HDC1000_BAT_VOLT_HIGHER_2V8;
@@ -97,17 +98,20 @@ uint16_t HDC1000_init()
 
 int16_t HDC1000_ReadRawTemperature()
 {
-	I2C_SMBUS_PACKAGE smbus;
 	int16_t data;
-
-	smbus.reg = HDC1000_TEMPERATURE_REG;
-	smbus.n_bytes = 0;
+	uint16_t time = 100;
+	uint8_t reg = HDC1000_TEMPERATURE_REG;
 
 	HDC1000_PedingInterrupt = 0;
 
-	i2c_write_smbus_block(HDC1000_I2C_ADDR, &smbus);
+	i2c_write_arr(HDC1000_I2C_ADDR, STOP, 1, &reg);
 
-	while (!HDC1000_PedingInterrupt){}
+	time += SystemTimeGet();
+	while (!HDC1000_PedingInterrupt){
+		if(SystemTimeDiff(time) < 0)
+		HDC1000_PedingInterrupt = 1;
+	}
+	SystemTimerDelay(1);
 
 	i2c_read(HDC1000_I2C_ADDR, STOP, I2C_LITTLE_ENDIAN, 2, &data);
 
@@ -123,17 +127,20 @@ int16_t HDC1000_ReadTemperature()
 
 uint16_t HDC1000_ReadRawHumidity()
 {
-	I2C_SMBUS_PACKAGE smbus;
 	uint16_t data;
-
-	smbus.reg = HDC1000_HUMIDITY_REG;
-	smbus.n_bytes = 0;
+	uint16_t time = 100;
+	uint8_t reg = HDC1000_HUMIDITY_REG;
 
 	HDC1000_PedingInterrupt = 0;
 
-	i2c_write_smbus_block(HDC1000_I2C_ADDR, &smbus);
+	i2c_write_arr(HDC1000_I2C_ADDR, STOP, 1, &reg);
 
-	while (!HDC1000_PedingInterrupt){}
+	time += SystemTimeGet();
+	while (!HDC1000_PedingInterrupt){
+		if(SystemTimeDiff(time) < 0)
+		HDC1000_PedingInterrupt = 1;
+	}
+	SystemTimerDelay(1);
 
 	i2c_read(HDC1000_I2C_ADDR, STOP, I2C_LITTLE_ENDIAN, 2, &data);
 

@@ -22,5 +22,6 @@ int16_t CC110L_WriteConfig(CC110L_CONFIG *Config);
 int16_t CC110L_ReadStatus();
 int16_t CC110L_SendCommand(uint8_t command);
 int16_t CC110L_TX(void *data, uint8_t n_bytes);
+int16_t CC110L_WritePATable(uint8_t nBytes, uint16_t PAValue);
 
 #endif// CC11xL_SPI_H

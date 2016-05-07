@@ -180,6 +180,7 @@ void __attribute__ ((interrupt(USCI_A0_VECTOR))) USCI_A0_ISR (void)
     	else {
     		volatile uint8_t tmp = 0;
     		tmp = UCA0RXBUF;
+    		tmp++;
     	}
         if(spi.RxnByteCtr == 0 && spi.TxnByteCtr == 0) {
         	__bic_SR_register_on_exit(CPUOFF); // Wake up to setup next TX

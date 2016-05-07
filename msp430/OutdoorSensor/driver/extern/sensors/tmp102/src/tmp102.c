@@ -21,7 +21,7 @@
 uint16_t TMP102_init()
 {
 	TMP102_Config Config;
-	uint16_t *ptr_tmp = (uint16_t*) &Config;
+	//uint16_t *ptr_tmp = (uint16_t*) &Config;
 
 	Config.OS = 0;
 	Config.R = TMP102_RESOLUTION_12BIT;
@@ -35,7 +35,7 @@ uint16_t TMP102_init()
 
 	SwapEndian(&Config);
 
-	i2c_write_smbus_word(TMP102_I2C_ADDR, TMP102_CONFIG_REG, *ptr_tmp);
+	i2c_write_smbus_word(TMP102_I2C_ADDR, TMP102_CONFIG_REG, *(uint16_t *)&Config);
 
 	return 0;
 }
@@ -48,16 +48,20 @@ int16_t TMP102_ReadTemperature()
 
 int16_t TMP102_ReadRawTemperature()
 {
-	union {
-		uint8_t byte[2];
-		int16_t word;
-	} data;
+	int16_t temp = 0;
 
-	SystemTimerDelay(SystemTimeDiff(125)); //Wait until system runing 125ms for conversion
+	SystemTimerDelay(SystemTimeDiff(200)); //Wait until system runing 125ms for conversion
 
-	data.word = i2c_read_smbus_word(TMP102_I2C_ADDR, TMP102_TEMPERATURE_REG);
+	temp = i2c_read_smbus_word(TMP102_I2C_ADDR, TMP102_TEMPERATURE_REG);
 
-	data.word  = ((int8_t)data.byte[0] << 4) | ((uint8_t)data.byte[1] >> 4);
+	SwapEndian(&temp);
 
-	return data.word;
+	if(temp & 0x0001) {
+		temp >>= 3;
+	}
+	else {
+		temp >>= 4;
+	}
+
+	return temp;
 }

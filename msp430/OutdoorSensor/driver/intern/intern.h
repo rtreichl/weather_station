@@ -26,5 +26,6 @@
 #include <intern/timer/timer.h>
 #include <intern/clock/clock.h>
 #include <intern/1wire/1wire.h>
+#include <intern/flash/flash.h>
 
 #endif /* DRIVER_INTERN_INTERN_H_ */

@@ -1,10 +1,10 @@
 ///----------------------------------------------------------------------------------------
 ///
-/// \file driver.h
+/// \file flash.h
 ///
 /// \brief 
 ///
-/// \date 07.01.2016
+/// \date 26.02.2016
 ///
 /// \author Richard Treichl
 ///
@@ -16,14 +16,11 @@
 ///
 ///----------------------------------------------------------------------------------------
 
-#ifndef DRIVER_DRIVER_H_
-#define DRIVER_DRIVER_H_
+#ifndef DRIVER_INTERN_FLASH_INCLUDE_FLASH_H_
+#define DRIVER_INTERN_FLASH_INCLUDE_FLASH_H_
 
-#include <msp430.h>
-#include <stdint.h>
-#include "../lib/library.h"
+#define FLASH_ADR_START 0x1000
+#define FLASH_SEG_SIZE	0x0040
+#define FLASH_ADR_STOP	0x10FF
 
-#include <intern/intern.h>
-#include <extern/extern.h>
-
-#endif /* DRIVER_DRIVER_H_ */
+#endif /* DRIVER_INTERN_FLASH_INCLUDE_FLASH_H_ */

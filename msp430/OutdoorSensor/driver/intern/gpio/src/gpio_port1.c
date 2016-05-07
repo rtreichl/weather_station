@@ -22,10 +22,17 @@
 #ifdef PORT1_VECTOR
 #if GPIO_PORT1_INTERRUPT == GPIO_INTERRUPT_ON
 
-volatile gpio_ptrfunc gpio1_isrs[8] = {0};
+gpio_ptrfunc gpio1_isrs[8] = {0};
 
-#pragma vector = PORT1_VECTOR
-__interrupt void Port1_isr(void)
+
+#if defined(__TI_COMPILER_VERSION__) || defined(__IAR_SYSTEMS_ICC__)
+#pragma vector=PORT1_VECTOR
+__interrupt void Port1_ISR(void)
+#elif defined(__GNUC__)
+void __attribute__ ((interrupt(PORT1_VECTOR))) Port1_ISR (void)
+#else
+#error Compiler not supported!
+#endif
 {
 	uint8_t i;
 	uint8_t pin;
@@ -37,7 +44,7 @@ __interrupt void Port1_isr(void)
 			pin >>= 1;
 		}
 		P1IFG = 0;
-	_BIC_SR(LPM3_EXIT);
+		_bic_SR_register_on_exit(LPM3_bits);
 }
 
 #endif
