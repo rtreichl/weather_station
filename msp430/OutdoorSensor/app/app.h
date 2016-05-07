@@ -21,8 +21,9 @@
 
 #include <driver.h>
 #include <library.h>
+#include "include/protocol.h"
 
 uint16_t application_main();
-uint16_t application_init(void *hw);
+uint16_t application_init(PROTOCOL_HARDWARE_STC *hw);
 
 #endif /* APP_APP_H_ */

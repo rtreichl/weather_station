@@ -32,22 +32,24 @@ typedef enum {
 	PROTOCOL_DATA,
 } PROTOCOL_PROTOCOL_E;
 
-typedef struct {
+typedef struct __attribute__((__packed__)){
 	uint8_t size;
 	uint8_t data[40];
 } PROTOCOL_BUFFER_STC;
 
-typedef struct {
-	uint16_t max17048:1;
-	uint16_t si1147:1;
-	uint16_t tmp102:1;
-	uint16_t hdc1000:1;
-	uint16_t lps25h:1;
-	uint16_t ds18b20:1;
-	uint16_t _res:10;
+typedef struct __attribute__((__packed__)){
+	uint8_t max17048:1;
+	uint8_t si1147:1;
+	uint8_t tmp102:1;
+	uint8_t hdc1000:1;
+	uint8_t lps25h:1;
+	uint8_t ds18b20:1;
+	uint8_t solar:1;
+	uint8_t _res:1;
+	uint8_t _res2:8;
 } PROTOCOL_HARDWARE_STC;
 
-typedef struct {
+typedef struct __attribute__((__packed__)){
 	uint8_t length;
 	uint8_t dest_addr:4;
 	uint8_t src_addr:4;
@@ -55,13 +57,13 @@ typedef struct {
 	PROTOCOL_STATUS_E status:4;
 } PROTOCOL_HEADER_STC;
 
-typedef struct {
+typedef struct __attribute__((__packed__)) {
 	PROTOCOL_HEADER_STC header;
 	PROTOCOL_HARDWARE_STC hardware;
 	PROTOCOL_BUFFER_STC buffer;
 } PROTOCOL_DATA_STC;
 
-typedef struct {
+typedef struct __attribute__((__packed__)){
 	PROTOCOL_HEADER_STC header;
 	PROTOCOL_HARDWARE_STC hardware;
 	PROTOCOL_BUFFER_STC buffer;
