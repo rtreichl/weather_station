@@ -17,7 +17,6 @@
 ///----------------------------------------------------------------------------------------
 
 #include <library.h>
-#include <driver.h>
 
 volatile uint16_t system_timer = 0;
 
@@ -37,7 +36,7 @@ uint16_t SystemTimerInit(Timer timer, uint32_t aclk_freq)
 	TIMER_CCTL(timer, CCR0) = *((uint16_t *)&TCCRConifg);
 	TIMER_CCR0(timer) = aclk_freq / 1000;
 	TimerAttachISR(timer, TimerA0CCR0ISR,SystemTimerISR);
-	TIMER_CTL(timer) = *((uint16_t *)&TConfig);
+	TIMER_CTL(timer) = *(uint16_t *)&TConfig;
 	__bis_SR_register(GIE);
 	return 0;
 }
@@ -54,10 +53,10 @@ int16_t SystemTimeDiff(uint16_t timer)
 
 uint16_t SystemTimerDelay(uint16_t ms)
 {
-	ms += system_timer;
+	ms += system_timer + 1;
 	while(ms > system_timer)
 	{
-		__bis_SR_register(LPM3+GIE);
+		__bis_SR_register(LPM3_bits+GIE);
 	}
 	return 0;
 }
