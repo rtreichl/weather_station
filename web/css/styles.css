@@ -1,0 +1,68 @@
+#hdc1000_box {
+    float:left;
+    width: 450px;
+    height: 271px;
+}
+
+#hdc1000_chart {
+    width: 450px;
+    height: 250px;
+}
+
+#lps25h_box {
+    float:left;
+    width: 450px;
+    height: 271px;
+}
+
+#lps25h_chart {
+    width: 450px;
+    height: 250px;
+}
+
+#luminance_box {
+    float:left;
+    width: 450px;
+    height: 271px;
+}
+
+#luminance_chart {
+    width: 450px;
+    height: 250px;
+}
+
+footer {
+    background-color:none;
+    color:black;
+    clear:both;
+    text-align:center;
+    padding:5px;
+}
+
+nav {
+    line-height:30px;
+    background-color:none;
+    height:50px;
+    min-width:1100px;
+    clear:both;
+    padding:5px;
+}
+
+section {
+    display : block;
+    background-color:none;
+    min-width:950px;
+    width: -moz-calc(100% - 150px);
+    width: -webkit-calc(100% - 150px);
+    width: -o-calc(100% - 150px);
+    width: calc(100% - 150px);
+    float:left;
+    padding:10px;
+}
+
+aside {
+    display : block;
+    background-color:none;
+    width:150px;
+    float:right;
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="f010857b-ace0-44e0-bcf3-d3aac67870b0" name="Raspberry Pi 2" url="http://192.168.2.34">
+        <fileTransfer host="192.168.2.34" port="21" rootFolder="/html" password="dfebdfd8dfdedfc2dfdfdfd8dff2df9bdf93df9adf9b" username="ftpuser">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

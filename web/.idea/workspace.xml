@@ -1,0 +1,1381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="df4e8425-18e4-4bfe-aff9-863f45c09116" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/font/weathericons-regular-webfont.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/font/weathericons-regular-webfont.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/font/weathericons-regular-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/font/weathericons-regular-webfont.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/backImage.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/backgroundTop.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/bg_black.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/bg_black_horizontal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/bg_blackhover.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/bg_blackhover_horizontal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/bg_blackpressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/bg_blackpressed_horizontal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/bg_blueenergy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/bg_darkblue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/bg_darkbluehover.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/bg_darkbluepressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/black_gradient.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/blackbackground.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/check_black.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/check_blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/check_blue_indeterminate.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/check_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/check_indeterminate_black.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/check_indeterminate_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/check_indeterminate_white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/check_lightblue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/check_lightblue_indeterminate.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/check_white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/close.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/close_black.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/close_blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/close_white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/common.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/crosshair-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/crosshair.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/darkred_gradient.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/drag.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/dragcancel.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/filter.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/html_editor.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/html_editor_white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-calendar-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-calendar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-cancel-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-cancel.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-delete-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-down-blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-down-transparent.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-down-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-down.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-edit-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-first-blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-first-transparent.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-first-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-first.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-last-blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-last-transparent.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-last-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-last.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-left-blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-left-transparent.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-left-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-left.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-menu-minimized-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-menu-minimized.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-plus-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-plus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-recurrence-exception-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-recurrence-exception.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-recurrence-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-recurrence.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-right-blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-right-transparent.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-right-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-right.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-save-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-save.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-showpassword-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-showpassword.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-time-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-time.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-up-blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-up-transparent.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-up-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/icon-up.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/info.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/loader-small.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/loader.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/mail.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/menubutton.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/metro-icon-down-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/metro-icon-down.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/metro-icon-first-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/metro-icon-first.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/metro-icon-last-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/metro-icon-last.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/metro-icon-left-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/metro-icon-left.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/metro-icon-right - Copy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/metro-icon-right-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/metro-icon-right.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/metro-icon-up-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/metro-icon-up.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/multi-arrow.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/office-icon-down.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/office-icon-first.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/office-icon-last.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/office-icon-left.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/office-icon-right.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/office-icon-up.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/pin-black.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/pin-blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/pin-lightblue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/pin-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/pin-yellow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/pin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/pinned-black.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/pinned-blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/pinned-lightblue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/pinned-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/pinned-yellow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/pinned.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/plus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/plus_white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/pointer.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/rangebar_classic.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/rangebar_darkblue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/rangebar_shinyblack.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/rangebar_summer.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/red_arrow_down.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/red_arrow_up.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/red_gradient.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/roundbg_check_black.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/roundbg_check_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/roundbg_check_indeterminate.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/roundbg_check_white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/roundbg_classic_hover.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/roundbg_classic_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/roundbg_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/search_white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/sortasc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/sortascbutton.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/sortdesc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/sortdescbutton.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/sortremove.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/star.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/star_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/star_hover.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/stripes.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/success.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/tick.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/time.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/track_classic.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/track_darkblue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/track_shinyblack.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/track_summer.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/warning.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/wp_check_indeterminate_white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/images/wp_check_white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/reset.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/weather-icons.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/font/weathericons-regular-webfont.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/globalization/ReadMe.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/globalization/globalize.culture.cs-CZ.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/globalization/globalize.culture.de-DE.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/globalization/globalize.culture.en-CA.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/globalization/globalize.culture.en-US.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/globalization/globalize.culture.fr-FR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/globalization/globalize.culture.he-IL.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/globalization/globalize.culture.hr-HR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/globalization/globalize.culture.hu-HU.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/globalization/globalize.culture.it-IT.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/globalization/globalize.culture.ja-JP.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/globalization/globalize.culture.lt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/globalization/globalize.culture.ru-RU.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/globalization/globalize.culture.sa-IN.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/globalization/globalize.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqx-all.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxangular.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxbargauge.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxbulletchart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxbuttongroup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxbuttons.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxcalendar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxchart.annotations.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxchart.api.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxchart.core.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxchart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxchart.rangeselector.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxchart.waterfall.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxcheckbox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxcolorpicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxcombobox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxcomplexinput.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxcore.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxdata.export.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxdata.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxdatatable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxdate.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxdatetimeinput.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxdocking.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxdockinglayout.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxdockpanel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxdragdrop.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxdraw.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxdropdownbutton.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxdropdownlist.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxeditor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxexpander.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxfileupload.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxformattedinput.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxgauge.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxgrid.aggregates.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxgrid.columnsreorder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxgrid.columnsresize.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxgrid.edit.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxgrid.export.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxgrid.filter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxgrid.grouping.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxgrid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxgrid.pager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxgrid.selection.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxgrid.sort.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxgrid.storage.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxinput.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxkanban.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxknob.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxknockout.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxlayout.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxlistbox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxlistmenu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxloader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxmaskedinput.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxmenu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxnavbar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxnavigationbar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxnotification.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxnumberinput.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxpanel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxpasswordinput.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxpopover.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxprogressbar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxradiobutton.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxrangeselector.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxrating.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxresponse.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxresponsivepanel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxribbon.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxscheduler.api.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxscheduler.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxscrollbar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxscrollview.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxslider.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxsortable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxsplitter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxswitchbutton.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxtabs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxtagcloud.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxtextarea.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxtoolbar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxtooltip.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxtouch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxtree.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxtreegrid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxtreemap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxvalidator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/jqxwindow.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.android.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.arctic.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.base.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.black.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.blackberry.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.classic.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.dark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.darkblue.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.energyblue.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.fresh.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.glacier.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.highcontrast.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.light.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.metro.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.metrodark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.mobile.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.office.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.orange.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.shinyblack.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.summer.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.ui-darkness.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.ui-le-frog.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.ui-lightness.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.ui-overcast.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.ui-redmond.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.ui-smoothness.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.ui-start.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.ui-sunny.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.web.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jqWidgets/styles/jqx.windowsphone.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/ActualPressure.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/ActualTempature.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DashBoard.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/Gauge.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/NavBars.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/jsonSensorGraph.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/jsonTrends.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/rangeSelector.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/ActiveSensors.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/GraphData.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/SensorData.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/functions.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/getSensorData2.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/getSensorDatas2.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/jsonDewpoint.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/jsonOverview.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/jsonSI1147.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/jsonSI1147Ir.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/jsonSI1147Uv.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/jsonSI1147Visible.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/jsonSeaLevelPressure.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/jsonTemperature.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/jsonTemperatureTrend.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/jsonjqWidgetsActualls.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/jsonjqWidgetsGuage.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/jsonjqWidgetsTemperature.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../eagle/eagle.epf" afterPath="$PROJECT_DIR$/../eagle/eagle.epf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../eagle/outdoorsensor/outdoor-sensor.brd" afterPath="$PROJECT_DIR$/../eagle/outdoorsensor/outdoor-sensor.brd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../eagle/outdoorsensor/outdoor-sensor.sch" afterPath="$PROJECT_DIR$/../eagle/outdoorsensor/outdoor-sensor.sch" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/.cproject" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/.cproject" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/app/app.h" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/app/app.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/app/include/protocol.h" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/app/include/protocol.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/app/src/app.c" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/app/src/app.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/app/src/device.c" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/app/src/device.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/app/src/protocol.c" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/app/src/protocol.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/driver.h" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/driver.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/communication/cc110l/cc110l.h" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/communication/cc110l/cc110l.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/communication/cc110l/include/cc110l_config2.h" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/communication/cc110l/include/cc110l_config2.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/sensors/hdc1000/src/hdc1000.c" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/sensors/hdc1000/src/hdc1000.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/sensors/lps25h/include/lps25h.h" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/sensors/lps25h/include/lps25h.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/sensors/lps25h/lps25h.h" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/sensors/lps25h/lps25h.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/sensors/lps25h/src/lps25h.c" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/sensors/lps25h/src/lps25h.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/sensors/max17048/max17048.h" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/sensors/max17048/max17048.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/sensors/max17048/src/max17048.c" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/sensors/max17048/src/max17048.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/sensors/si1147/si1147.h" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/sensors/si1147/si1147.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/sensors/si1147/src/si1147.c" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/sensors/si1147/src/si1147.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/sensors/tmp102/src/tmp102.c" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/extern/sensors/tmp102/src/tmp102.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/1wire/1wire.h" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/1wire/1wire.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/1wire/src/1wire.c" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/1wire/src/1wire.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/clock/include/clock.h" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/clock/include/clock.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/gpio/gpio.h" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/gpio/gpio.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/gpio/src/gpio.c" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/gpio/src/gpio.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/gpio/src/gpio_port1.c" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/gpio/src/gpio_port1.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/gpio/src/gpio_port3.c" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/gpio/src/gpio_port3.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/i2c/i2c.h" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/i2c/i2c.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/i2c/src/i2c.c" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/i2c/src/i2c.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/intern.h" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/intern.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/spi/src/spi.c" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/spi/src/spi.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/timer/include/timer.h" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/timer/include/timer.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/timer/src/timerA.c" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/driver/intern/timer/src/timerA.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/lib/system/include/system.h" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/lib/system/include/system.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/lib/system/src/system.c" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/lib/system/src/system.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/lib/system/system.h" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/lib/system/system.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/lib/timer/src/timer.c" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/lib/timer/src/timer.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../msp430/OutdoorSensor/main.c" afterPath="$PROJECT_DIR$/../msp430/OutdoorSensor/main.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../raspi/receiver/.cproject" afterPath="$PROJECT_DIR$/../raspi/receiver/.cproject" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../raspi/receiver/driver/extern/cc110l/cc110l.h" afterPath="$PROJECT_DIR$/../raspi/receiver/driver/extern/cc110l/cc110l.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../raspi/receiver/driver/extern/cc110l/include/cc110l_config2.h" afterPath="$PROJECT_DIR$/../raspi/receiver/driver/extern/cc110l/include/cc110l_config2.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../raspi/receiver/driver/extern/cc110l/src/cc110l.cpp" afterPath="$PROJECT_DIR$/../raspi/receiver/driver/extern/cc110l/src/cc110l.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../raspi/receiver/driver/extern/hdc1000/hdc1000.h" afterPath="$PROJECT_DIR$/../raspi/receiver/driver/extern/hdc1000/hdc1000.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../raspi/receiver/driver/extern/hdc1000/src/hdc1000.cpp" afterPath="$PROJECT_DIR$/../raspi/receiver/driver/extern/hdc1000/src/hdc1000.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../raspi/receiver/driver/extern/tmp102/src/tmp102.cpp" afterPath="$PROJECT_DIR$/../raspi/receiver/driver/extern/tmp102/src/tmp102.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../raspi/receiver/driver/intern/gpio/gpio.h" afterPath="$PROJECT_DIR$/../raspi/receiver/driver/intern/gpio/gpio.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../raspi/receiver/driver/intern/gpio/src/gpio.cpp" afterPath="$PROJECT_DIR$/../raspi/receiver/driver/intern/gpio/src/gpio.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../raspi/receiver/driver/intern/i2c/src/i2c.cpp" afterPath="$PROJECT_DIR$/../raspi/receiver/driver/intern/i2c/src/i2c.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../raspi/receiver/driver/intern/spi/spi.h" afterPath="$PROJECT_DIR$/../raspi/receiver/driver/intern/spi/spi.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../raspi/receiver/driver/intern/spi/src/spi.cpp" afterPath="$PROJECT_DIR$/../raspi/receiver/driver/intern/spi/src/spi.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../raspi/receiver/src/WeatherStation.cpp" afterPath="$PROJECT_DIR$/../raspi/receiver/src/WeatherStation.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../raspi/receiver/src/database.cpp" afterPath="$PROJECT_DIR$/../raspi/receiver/src/database.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../raspi/receiver/src/database.h" afterPath="$PROJECT_DIR$/../raspi/receiver/src/database.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../raspi/receiver/src/mysql_commands.h" afterPath="$PROJECT_DIR$/../raspi/receiver/src/mysql_commands.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../raspi/receiver/src/protocol.h" afterPath="$PROJECT_DIR$/../raspi/receiver/src/protocol.h" />
+    </list>
+    <ignored path="web.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="web" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index2.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1251">
+              <caret line="146" column="17" selection-start-line="146" selection-start-column="17" selection-end-line="146" selection-end-column="17" />
+              <folding>
+                <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#2;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#3;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#4;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#5;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#6;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#tr#2;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#tr#3;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getSensorData2.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/getSensorData2.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="4" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SensorData.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/SensorData.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="714">
+              <caret line="42" column="72" selection-start-line="42" selection-start-column="72" selection-end-line="42" selection-end-column="72" />
+              <folding>
+                <element signature="e#6#98#0#PHP" expanded="true" />
+                <marker date="1462543989037" expanded="true" signature="599:728" placeholder="SELECT NAME,... SensorsActive" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jsonSeaLevelPressure.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/jsonSeaLevelPressure.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="27" column="42" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="42" />
+              <folding>
+                <marker date="1462467082499" expanded="true" signature="373:483" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462467082499" expanded="true" signature="545:647" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462467082499" expanded="true" signature="708:838" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462467082499" expanded="true" signature="880:1023" placeholder="SELECT DATET... ${$Sensor}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GraphData.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/GraphData.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="816">
+              <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="36" />
+              <folding>
+                <marker date="1462544327102" expanded="true" signature="665:775" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462544327102" expanded="true" signature="837:939" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462544327102" expanded="true" signature="1000:1130" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462544327102" expanded="true" signature="1172:1315" placeholder="SELECT DATET... ${$Sensor}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gauge.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/Gauge.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-989">
+              <caret line="21" column="14" selection-start-line="20" selection-start-column="30" selection-end-line="21" selection-end-column="14" />
+              <folding>
+                <element signature="n#!!doc;n#createGauge#0" expanded="false" />
+                <marker date="1462534237491" expanded="true" signature="4258:4281" placeholder="..." />
+                <marker date="1462534237491" expanded="true" signature="4258:4322" placeholder="..." />
+                <marker date="1462534237491" expanded="true" signature="4351:4417" placeholder="..." />
+                <marker date="1462534237491" expanded="true" signature="4480:4544" placeholder="..." />
+                <marker date="1462534237491" expanded="true" signature="4595:4613" placeholder="..." />
+                <marker date="1462534237491" expanded="true" signature="4674:4704" placeholder="..." />
+                <marker date="1462534237491" expanded="true" signature="4761:4791" placeholder="..." />
+                <marker date="1462534237491" expanded="true" signature="4826:4844" placeholder="..." />
+                <marker date="1462534237491" expanded="true" signature="5492:5522" placeholder="..." />
+                <marker date="1462534237491" expanded="true" signature="5557:5575" placeholder="..." />
+                <marker date="1462534237491" expanded="true" signature="5684:5702" placeholder="..." />
+                <marker date="1462534237491" expanded="true" signature="5763:5793" placeholder="..." />
+                <marker date="1462534237491" expanded="true" signature="5875:5939" placeholder="..." />
+                <marker date="1462534237491" expanded="true" signature="5968:6015" placeholder="..." />
+                <marker date="1462534237491" expanded="true" signature="5968:6034" placeholder="..." />
+                <marker date="1462534237491" expanded="true" signature="6097:6161" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jsonSensorGraph.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/jsonSensorGraph.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="575">
+              <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
+              <folding>
+                <element signature="n#!!doc;n#createGraph#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jsonjqWidgetsTemperature.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/jsonjqWidgetsTemperature.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="901">
+              <caret line="125" column="54" selection-start-line="125" selection-start-column="54" selection-end-line="125" selection-end-column="54" />
+              <folding>
+                <marker date="1462559922690" expanded="true" signature="767:804" placeholder="SELECT NAME SensorsActive" />
+                <marker date="1462559922690" expanded="true" signature="767:809" placeholder="SELECT NAME SensorsActive" />
+                <marker date="1462559922690" expanded="true" signature="886:931" placeholder="SELECT NAME SensorsActive" />
+                <marker date="1462559922690" expanded="true" signature="1006:1049" placeholder="SELECT NAME SensorsActive" />
+                <marker date="1462559922690" expanded="true" signature="1104:1159" placeholder="SELECT NAME SensorsActive" />
+                <marker date="1462559922690" expanded="true" signature="1449:1544" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462559922690" expanded="true" signature="1622:1709" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462559922690" expanded="true" signature="1786:1901" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462559922690" expanded="true" signature="1959:2087" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462559922690" expanded="true" signature="2711:2806" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462559922690" expanded="true" signature="2884:2971" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462559922690" expanded="true" signature="3048:3163" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462559922690" expanded="true" signature="3221:3349" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462559922690" expanded="true" signature="3975:4085" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462559922690" expanded="true" signature="4163:4265" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462559922690" expanded="true" signature="4342:4472" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462559922690" expanded="true" signature="4530:4673" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462559922690" expanded="true" signature="5538:5648" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462559922690" expanded="true" signature="5726:5828" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462559922690" expanded="true" signature="5905:6035" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1462559922690" expanded="true" signature="6093:6236" placeholder="SELECT DATET... ${$Sensor}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jsonSolar.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/jsonSolar.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="61" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="61" />
+              <folding>
+                <marker date="1459528955616" expanded="true" signature="63:150" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1459528955616" expanded="true" signature="217:332" placeholder="SELECT DATET... ${$Sensor}" />
+                <marker date="1459528955616" expanded="true" signature="380:508" placeholder="SELECT DATET... ${$Sensor}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DashBoard.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/DashBoard.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="21" column="80" selection-start-line="21" selection-start-column="80" selection-end-line="21" selection-end-column="80" />
+              <folding>
+                <element signature="n#!!doc;n#createDashBoard#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/php/jsonHDC1000Both.php" />
+        <option value="$PROJECT_DIR$/php/jsonMAX17048Voltage.php" />
+        <option value="$PROJECT_DIR$/php/jsonMAX17048ChargeRate.php" />
+        <option value="$PROJECT_DIR$/php/jsonSI1147Visible.php" />
+        <option value="$PROJECT_DIR$/php/jsonSI1147Uv.php" />
+        <option value="$PROJECT_DIR$/php/jsonSI1147Ir.php" />
+        <option value="$PROJECT_DIR$/php/jsonSI1147.php" />
+        <option value="$PROJECT_DIR$/php/jsonLPS25HTemperature.php" />
+        <option value="$PROJECT_DIR$/php/jsonLPS25HDewpoint.php" />
+        <option value="$PROJECT_DIR$/php/jsonLPS25H.php" />
+        <option value="$PROJECT_DIR$/php/jsonLPS25HSeaLevelPressure.php" />
+        <option value="$PROJECT_DIR$/php/jsonOverview.php" />
+        <option value="$PROJECT_DIR$/php/jsonTemperature.php" />
+        <option value="$PROJECT_DIR$/php/getChartData.php" />
+        <option value="$PROJECT_DIR$/js/tabs.js" />
+        <option value="$PROJECT_DIR$/css/reset.css" />
+        <option value="$PROJECT_DIR$/js/partSelection.js" />
+        <option value="$PROJECT_DIR$/php/jsonjqWidgetsGuage.php" />
+        <option value="$PROJECT_DIR$/js/jsonSensorData.js" />
+        <option value="$PROJECT_DIR$/php/functions.php" />
+        <option value="$PROJECT_DIR$/php/jsonjqWidgetsActualls.php" />
+        <option value="$PROJECT_DIR$/js/jsonTrends.js" />
+        <option value="$PROJECT_DIR$/js/jsonSensorGauge.js" />
+        <option value="$PROJECT_DIR$/php/ActiveSensors.php" />
+        <option value="$PROJECT_DIR$/php/getSensorData2.php" />
+        <option value="$PROJECT_DIR$/php/jsonSeaLevelPressure.php" />
+        <option value="$PROJECT_DIR$/jqWidgets/styles/jqx.metrodark.css" />
+        <option value="$PROJECT_DIR$/js/rangeSelector.js" />
+        <option value="$PROJECT_DIR$/js/NavBars.js" />
+        <option value="$PROJECT_DIR$/js/ActualTempature.js" />
+        <option value="$PROJECT_DIR$/index2.html" />
+        <option value="$PROJECT_DIR$/js/ActualPressure.js" />
+        <option value="$PROJECT_DIR$/js/Gauge.js" />
+        <option value="$PROJECT_DIR$/js/DashBoard.js" />
+        <option value="$PROJECT_DIR$/php/getSensorDatas2.php" />
+        <option value="$PROJECT_DIR$/php/SensorData.php" />
+        <option value="$PROJECT_DIR$/php/GraphData.php" />
+        <option value="$PROJECT_DIR$/php/jsonjqWidgetsTemperature.php" />
+        <option value="$PROJECT_DIR$/js/jsonSensorGraph.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="2576" />
+    <option name="height" value="1416" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jquery" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="js-jscs-nodeInterpreter" value="C:\PROGRAM FILES (X86)\NODEJS\node.exe" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\GIT\weather_station\web\jqWidgets\styles\images" />
+      <recent name="F:\GIT\weather_station\web\jqWidgets\styles" />
+      <recent name="F:\GIT\weather_station\web\jqWidgets\globalization" />
+      <recent name="F:\GIT\weather_station\web\jqWidgets" />
+      <recent name="F:\GIT\weather_station\web\font" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\GIT\weather_station\web\php" />
+      <recent name="F:\GIT\weather_station\web\jqWidgets" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.index.html">
+    <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://192.168.2.30/index.html">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="df4e8425-18e4-4bfe-aff9-863f45c09116" name="Default" comment="" />
+      <created>1459687339098</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1459687339098</updated>
+      <workItem from="1459687340306" duration="1354000" />
+      <workItem from="1459696838480" duration="14000" />
+      <workItem from="1459696868181" duration="8688000" />
+      <workItem from="1459878315534" duration="4794000" />
+      <workItem from="1459955293458" duration="7129000" />
+      <workItem from="1460109356682" duration="27142000" />
+      <workItem from="1460386277074" duration="36873000" />
+      <workItem from="1460491910976" duration="19237000" />
+      <workItem from="1460630788529" duration="12492000" />
+      <workItem from="1461584027954" duration="15624000" />
+      <workItem from="1462297885174" duration="27839000" />
+      <workItem from="1462481297458" duration="1773000" />
+      <workItem from="1462533742099" duration="12880000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="175849000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13513513" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924962" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289166" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3998441" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924962" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32924962" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13359375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3998441" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="41" column="6" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonHDC1000Both.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonMAX17048Voltage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonMAX17048ChargeRate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="108" selection-start-line="6" selection-start-column="82" selection-end-line="6" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonSI1147Visible.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonSI1147Uv.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonSI1147Ir.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonSI1147.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonLPS25HTemperature.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonHDC1000.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonOverview.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jqWidgets/globalization/ReadMe.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jqWidgets/styles/jqx.dark.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="158" column="2" selection-start-line="158" selection-start-column="1" selection-end-line="158" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jqWidgets/styles/jqx.base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2023">
+          <caret line="119" column="23" selection-start-line="119" selection-start-column="23" selection-end-line="119" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonMAX17048Charge.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="6" selection-end-column="166" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonMAX17048.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonTemperature.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="156" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="156" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jqWidgets/styles/jqx.metro.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1071">
+          <caret line="75" column="19" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="43" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/reset.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/getBattery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="118" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="118" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/tabs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="61" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonjqWidgetsGuage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonDewpoint.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="44" column="40" selection-start-line="31" selection-start-column="8" selection-end-line="44" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="37" column="34" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonTemperatureTrend.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="11" column="140" selection-start-line="11" selection-start-column="97" selection-end-line="11" selection-end-column="140" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonLPS25H.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonLPS25HPressure.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="2" selection-start-line="40" selection-start-column="2" selection-end-line="40" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jsonTrends.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+          <folding>
+            <element signature="n#!!doc;n#createTrends#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/getChartData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="50" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/ActiveSensors.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/getSensorDatas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="62" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/getSensorData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonjqWidgetsActualls.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="957">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="69" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jqWidgets/styles/jqx.metrodark.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1564">
+          <caret line="92" column="165" selection-start-line="92" selection-start-column="165" selection-end-line="92" selection-end-column="165" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/rangeSelector.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+          <folding>
+            <element signature="n#!!doc;n#createRangeSelector#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/ActualTempature.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="46" column="39" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
+          <folding>
+            <element signature="n#!!doc;n#createActualTemp#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/ActualPressure.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="37" />
+          <folding>
+            <element signature="n#!!doc;n#createActualPress#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/NavBars.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="52" column="17" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+          <folding>
+            <element signature="n#!!doc;n#createNavBars#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/getSensorDatas2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+          <folding>
+            <marker date="1462543933116" expanded="true" signature="450:579" placeholder="SELECT NAME,... SensorsActive" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/DashBoard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" column="80" selection-start-line="21" selection-start-column="80" selection-end-line="21" selection-end-column="80" />
+          <folding>
+            <element signature="n#!!doc;n#createDashBoard#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Gauge.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-989">
+          <caret line="21" column="14" selection-start-line="20" selection-start-column="30" selection-end-line="21" selection-end-column="14" />
+          <folding>
+            <element signature="n#!!doc;n#createGauge#0" expanded="false" />
+            <marker date="1462534237491" expanded="true" signature="4258:4281" placeholder="..." />
+            <marker date="1462534237491" expanded="true" signature="4258:4322" placeholder="..." />
+            <marker date="1462534237491" expanded="true" signature="4351:4417" placeholder="..." />
+            <marker date="1462534237491" expanded="true" signature="4480:4544" placeholder="..." />
+            <marker date="1462534237491" expanded="true" signature="4595:4613" placeholder="..." />
+            <marker date="1462534237491" expanded="true" signature="4674:4704" placeholder="..." />
+            <marker date="1462534237491" expanded="true" signature="4761:4791" placeholder="..." />
+            <marker date="1462534237491" expanded="true" signature="4826:4844" placeholder="..." />
+            <marker date="1462534237491" expanded="true" signature="5492:5522" placeholder="..." />
+            <marker date="1462534237491" expanded="true" signature="5557:5575" placeholder="..." />
+            <marker date="1462534237491" expanded="true" signature="5684:5702" placeholder="..." />
+            <marker date="1462534237491" expanded="true" signature="5763:5793" placeholder="..." />
+            <marker date="1462534237491" expanded="true" signature="5875:5939" placeholder="..." />
+            <marker date="1462534237491" expanded="true" signature="5968:6015" placeholder="..." />
+            <marker date="1462534237491" expanded="true" signature="5968:6034" placeholder="..." />
+            <marker date="1462534237491" expanded="true" signature="6097:6161" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1251">
+          <caret line="146" column="17" selection-start-line="146" selection-start-column="17" selection-end-line="146" selection-end-column="17" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#2;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#3;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#4;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#5;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#6;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#2;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#3;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/getSensorData2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="4" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonSolar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="61" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="61" />
+          <folding>
+            <marker date="1459528955616" expanded="true" signature="63:150" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1459528955616" expanded="true" signature="217:332" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1459528955616" expanded="true" signature="380:508" placeholder="SELECT DATET... ${$Sensor}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/SensorData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="72" selection-start-line="42" selection-start-column="72" selection-end-line="42" selection-end-column="72" />
+          <folding>
+            <element signature="e#6#98#0#PHP" expanded="true" />
+            <marker date="1462543989037" expanded="true" signature="599:728" placeholder="SELECT NAME,... SensorsActive" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/GraphData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="36" />
+          <folding>
+            <marker date="1462544327102" expanded="true" signature="665:775" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462544327102" expanded="true" signature="837:939" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462544327102" expanded="true" signature="1000:1130" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462544327102" expanded="true" signature="1172:1315" placeholder="SELECT DATET... ${$Sensor}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonSeaLevelPressure.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="27" column="42" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="42" />
+          <folding>
+            <marker date="1462467082499" expanded="true" signature="373:483" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462467082499" expanded="true" signature="545:647" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462467082499" expanded="true" signature="708:838" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462467082499" expanded="true" signature="880:1023" placeholder="SELECT DATET... ${$Sensor}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/jsonjqWidgetsTemperature.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="125" column="54" selection-start-line="125" selection-start-column="54" selection-end-line="125" selection-end-column="54" />
+          <folding>
+            <marker date="1462559922690" expanded="true" signature="767:804" placeholder="SELECT NAME SensorsActive" />
+            <marker date="1462559922690" expanded="true" signature="767:809" placeholder="SELECT NAME SensorsActive" />
+            <marker date="1462559922690" expanded="true" signature="886:931" placeholder="SELECT NAME SensorsActive" />
+            <marker date="1462559922690" expanded="true" signature="1006:1049" placeholder="SELECT NAME SensorsActive" />
+            <marker date="1462559922690" expanded="true" signature="1104:1159" placeholder="SELECT NAME SensorsActive" />
+            <marker date="1462559922690" expanded="true" signature="1449:1544" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462559922690" expanded="true" signature="1622:1709" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462559922690" expanded="true" signature="1786:1901" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462559922690" expanded="true" signature="1959:2087" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462559922690" expanded="true" signature="2711:2806" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462559922690" expanded="true" signature="2884:2971" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462559922690" expanded="true" signature="3048:3163" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462559922690" expanded="true" signature="3221:3349" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462559922690" expanded="true" signature="3975:4085" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462559922690" expanded="true" signature="4163:4265" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462559922690" expanded="true" signature="4342:4472" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462559922690" expanded="true" signature="4530:4673" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462559922690" expanded="true" signature="5538:5648" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462559922690" expanded="true" signature="5726:5828" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462559922690" expanded="true" signature="5905:6035" placeholder="SELECT DATET... ${$Sensor}" />
+            <marker date="1462559922690" expanded="true" signature="6093:6236" placeholder="SELECT DATET... ${$Sensor}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jsonSensorGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
+          <folding>
+            <element signature="n#!!doc;n#createGraph#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

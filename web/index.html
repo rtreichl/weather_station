@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title id='Description'>In this example is demonstrated how to populate the jqxChart with data from MySQL Database</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/tabs.css">
+	<!--Load the AJAX API-->
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="js/tabs.js"></script>
+    <!--script type="text/javascript" src="js/hdc1000.js"></script>
+    <script type="text/javascript" src="js/luminance.js"></script>
+    <script type="text/javascript" src="js/lps25h.js"></script-->
+    <script type="text/javascript" src="js/battery.js"></script>
+    <script type="text/javascript" src="js/clock.js"></script>
+</head>
+<body class='default'>
+<nav id="menu">
+<div id="tabs">
+  <ul class="nav nav-tabs">
+    <?php
+        include "php/getSensorData.php";
+    ?>
+  </ul>
+</div>
+</nav>
+<section id="part">
+<div>
+  <ul class="nav nav-pills">
+    <?php
+        include "php/getSensorDatas.php";
+    ?>
+  </ul>
+</div>
+</section>
+<aside id="sidebar">
+<div class="clock">
+    <canvas class="canvas" id="ClockCanvas" width="150px" height="150px">
+        Your browser does not support the HTML5 canvas tag.
+    </canvas>
+</div>
+    <div id="battery_chart"></div>
+</aside>
+<article id="content">
+<section id="time">
+<div>
+  <ul class="nav nav-pills">
+    <li class="active">
+        <a href="#day" data-toggle="tab">Day</a>
+    </li>
+    <li>
+        <a href="#24" data-toggle="tab">Last 24h</a>
+    </li>
+    <li>
+        <a href="#12" data-toggle="tab">Last 12h</a>
+    </li>
+    <li>
+        <a href="#6" data-toggle="tab">Last 6h</a>
+    </li>
+    <li>
+        <a href="#3" data-toggle="tab">Last 3h</a>
+    </li>
+    <li>
+        <a href="#1" data-toggle="tab">Last hour</a>
+    </li>
+  </ul>
+</div>
+</section>
+    <div id="hdc1000_box">
+        <div id="hdc1000_chart">
+        </div>
+    </div>
+    <div id="lps25h_box">
+    	<div id="lps25h_chart">
+        </div>
+    </div>
+    <div id="luminance_box">
+	    <div id="luminance_chart">
+        </div>
+    </div>
+</article>
+<footer>
+I'm a Footer
+</footer>
+</body>
+</html>
